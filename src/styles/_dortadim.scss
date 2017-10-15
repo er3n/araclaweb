@@ -1,0 +1,79 @@
+#dort-adim {
+    p {
+        font-size: 18px;
+        font-weight: 300;
+    }
+    .adimlar {
+        margin-top: 30px;
+        display: flex;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        flex-flow: wrap;
+        .adim {
+            text-align: center;
+            width: calc(50% - 21px);
+            padding: 20px 10px;
+            &:first-child {
+                border-right: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
+            }
+            &:nth-child(2n+2) {
+                border-bottom: 1px solid #ddd;
+            }
+            &:nth-child(3n+3) {
+                border-right: 1px solid #ddd;
+            }
+            &:last-child {
+                border: none;
+            }
+            h4 {
+                font-size: 20px;
+                color: #444;
+                font-weight: 500;
+                margin-top: 15px;
+            }
+            p {
+                font-size: 16px;
+                line-height: 1.4;
+                font-weight: 300;
+            }
+        }
+    }
+
+    @media screen and (min-width: $break-mobile + 1) and (max-width: $break-laptop) {
+
+        .adimlar {
+            .adim {
+                width: calc(25% - 21px);
+                border-bottom: none !important;
+                border-right: 1px solid #ddd;
+                p {
+                    font-size: 17px;
+                }
+                img {
+                    height: 60px;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: $break-laptop + 1) {
+
+        .adimlar {
+            .adim {
+                width: calc(25% - 21px);
+                border-bottom: none !important;
+                border-right: 1px solid #ddd;
+                p {
+                    font-size: 18px;
+                    font-weight: 400;
+                }
+                img {
+                    height: 72px;
+                }
+            }
+        }
+    }
+
+
+}

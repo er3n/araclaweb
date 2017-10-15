@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="24px" viewBox="0 0 14 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>back</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="reset-password" transform="translate(-33.000000, -334.000000)" fill="#489DC3">
+            <g id="back" transform="translate(33.000000, 334.000000)">
+                <g id="Capa_1">
+                    <path d="M0.357588517,12.8471701 L11.0170335,23.6283485 C11.4847628,24.1003817 12.2425591,24.1003817 12.7114696,23.6283485 C13.1791989,23.1563154 13.1791989,22.38961 12.7114696,21.9175768 L2.89752016,11.991834 L12.7102884,2.06609129 C13.1780178,1.59405809 13.1780178,0.827352697 12.7102884,0.354124481 C12.2425591,-0.117908714 11.4835817,-0.117908714 11.0158524,0.354124481 L0.356407382,11.1352033 C-0.104136705,11.6023568 -0.104136705,12.381112 0.357588517,12.8471701 L0.357588517,12.8471701 Z" id="Chevron_Right"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

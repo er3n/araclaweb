@@ -1,0 +1,58 @@
+.reservation-container {
+
+    .park-noktasi-sec, .zaman-sec {
+        opacity: 0;
+        transition: ease all .4s;
+        visibility: hidden;
+        height: 0;
+        &.active {
+            visibility: visible;
+            opacity: 1;
+            height: auto;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 30px 0;
+        }
+        .tarih {
+            background: url(../img/icons/weekly-calendar.svg) calc(100% - 15px) center no-repeat #fff;
+            background-size: 22px 16px;
+        }
+        .saat {
+            background: url(../img/icons/timer.svg) calc(100% - 15px) center no-repeat #fff;
+            background-size: 20px;
+        }
+        p {
+            overflow: hidden;
+            .half {
+                float: left;
+                width: calc(50% - 2px);
+            }
+        }
+    }
+    
+    .park-noktalari {
+        margin-top: 30px;
+        list-style: none;
+        li {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            a {
+                overflow: hidden;
+                display: block;
+                img {
+                    float: left;
+                    width: 60px;
+                    margin-right: 20px;
+                }
+                span {
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,264 @@
+
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 2;
+
+    &.active {
+        display: block;
+        & > .modal--content {
+            top: 20px;
+            opacity: 1;
+        }
+    }
+    .modal--content {
+        margin: 30px auto;
+        background: #fff;
+        padding: 20px;
+        font-size: 18px;
+        line-height: 1.5;
+        max-width: calc(100% - 80px);
+        .modal--content--title {
+            overflow: hidden;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            .title {
+                float: left;
+                font-weight: 500;
+                font-size: 20px;
+            }
+            .close {
+                float: right;
+                width: 18px;
+                height: 18px;
+                background: url(../img/icons/close.svg) no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+
+    @media screen and (min-width: $break-tablet) {
+        .modal--content {
+            max-width: 640px;
+        }
+    }
+}
+
+.btn-hesapla {
+    padding: 10px;
+    display: block;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    background: $main-color;
+    i {
+        background: url(../img/icons/calculator.svg) no-repeat;
+        background-size: cover;
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+    }
+}
+
+
+
+
+
+
+
+
+.car-detail-modal {
+
+    position: absolute;
+    width: 60%;
+    left: 20%;
+    top: 100px;
+    display: none;
+
+    background: #fff;
+    box-shadow: 0 0 40px rgba(0,0,0,.4);
+    z-index: 99999;
+
+    .header {
+        display: block;
+        padding: 30px;
+        background: $ne-oderim;
+        color: #fff;
+        h2 {
+            font-size: 36px;
+            color: #fff;
+            font-weight: 500;
+        }
+        h3 {
+            color: #fff;
+            font-size: 21px;
+            margin-bottom: 0;
+        }
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: 30px;
+        &.with-line {
+            font-size: 16px;
+            td {
+                border-bottom: 1px solid #e1e1e1;
+                &.toplam {
+                    color: $link-color;
+                    font-weight: 400;
+                    strong {
+                        color: $link-color;
+                    }
+                }
+            }
+        }
+        tr {
+            td {
+                padding: 5px 0;
+                &::first-child {
+                    width: 40%;
+                }
+            }
+        }
+    }
+    
+    .btn-hesapla {
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .body {
+        overflow: hidden;
+        padding: 30px;
+        font-size: 20px;
+        h3 {
+            font-weight: 500;
+            font-size: 24px;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+        h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            margin-top: 0;
+            font-weight: 500;
+            color: $link-color;
+        }
+        strong {
+            font-weight: 500;
+        }        
+        .left {
+            padding: 30px 0;
+            width: 50%;
+            float: left;
+            img {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+            small {
+                color: $link-color;
+            }
+        }
+        .right {
+            float: right;
+            padding: 30px;
+            width: calc(50% - 60px);
+
+            .ozellikler {
+                font-weight: 400;
+                font-size: 28px;
+                margin-bottom: 5px;
+            }
+            .brand {
+                color: $link-color;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+.aracla-date-picker {
+    width: 100%;
+    border-spacing: 1px;
+    caption {
+        display: table-caption;
+        text-align: center;
+        margin: 10px 0;
+        .prev, .next {
+            width: 24px;
+            height: 24px;
+            background-size: 24px;
+            text-indent: -10000px;
+            cursor: pointer;
+        }
+        .prev {
+            float: left;
+            background: url(../img/datepicker/prev.svg) no-repeat;
+        }
+        .next {
+            float: right;
+            background: url(../img/datepicker/next.svg) no-repeat;
+        }
+        span {
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+    thead {
+        display: table-header-group;
+        th {
+            font-size: 16px;
+            font-weight: 500;
+            height: 32px;
+            width: calc(100% / 7);
+        }
+    }
+    tbody {
+        margin-top: 10px;
+        tr {
+            td {
+                width: calc(100% / 7);
+                font-weight: 500;
+                font-size: 16px;
+                padding: 12px 10px;
+                text-align: center;
+                background: $table-td;
+                color: #fff;
+                transition: ease all .1s;
+                
+                &.disabled, &.disabled:hover {
+                    background: $table-td-disable;
+                    color: #aaa;
+                    cursor: default;
+                    &:hover {
+                        background: $table-td-disable;
+                    }
+                }
+                &.locked, &.locked:hover {
+                    background: $table-td-locked;
+                    color: $table-td-locked-text;
+                }
+                &.current {
+                    background: $table-td-current;
+                    color: #fff;
+                }
+                &:hover, &.selected {
+                    background: $table-td-hover;
+                    cursor: pointer;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

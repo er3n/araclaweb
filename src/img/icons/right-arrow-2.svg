@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="10px" viewBox="0 0 14 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>right-arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-6-Plus" transform="translate(-144.000000, -701.000000)" fill="#707007">
+            <g id="Group-10" transform="translate(0.000000, 467.000000)">
+                <g id="Group-9">
+                    <g id="Group-6" transform="translate(15.000000, 58.000000)">
+                        <g id="Group-7" transform="translate(50.000000, 168.000000)">
+                            <g id="Group-11">
+                                <g id="right-arrow" transform="translate(79.000000, 8.000000)">
+                                    <g id="Capa_1">
+                                        <path d="M9.21956522,0.437826087 C9.03304348,0.244782609 8.7226087,0.244782609 8.52956522,0.437826087 C8.34304348,0.624347826 8.34304348,0.934782609 8.52956522,1.12086957 L12.0282609,4.61956522 L0.483043478,4.61956522 C0.213913043,4.62 0,4.83391304 0,5.10304348 C0,5.37217391 0.213913043,5.59304348 0.483043478,5.59304348 L12.0282609,5.59304348 L8.52956522,9.08521739 C8.34304348,9.27826087 8.34304348,9.58913043 8.52956522,9.77521739 C8.7226087,9.96826087 9.03347826,9.96826087 9.21956522,9.77521739 L13.5465217,5.44826087 C13.7395652,5.26173913 13.7395652,4.95130435 13.5465217,4.76521739 L9.21956522,0.437826087 L9.21956522,0.437826087 Z" id="Shape"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

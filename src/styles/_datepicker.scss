@@ -1,0 +1,63 @@
+#ui-datepicker-div {
+    position: fixed;
+    left: 0 !important;
+    z-index: 10000;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    padding-top: 20px;
+    
+    tbody tr:last-child a {
+        border-bottom: 1px solid #ddd !important;
+    }
+    tbody tr:last-child > td.ui-state-disabled {
+        border-top: 1px solid #ddd !important;
+    }
+
+    @media screen and (min-width: $break-mobile + 1) {
+        left: calc(50% - 250px) !important;
+        width: 500px;
+    }
+}
+
+
+
+.ui-datepicker-header {
+    border: none;
+    border-radius: 0;
+    background: none;
+    font-size: 20px;
+}
+
+.ui-datepicker-title span {
+    font-weight: 500;
+    font-size: 24px
+}
+
+
+.ui-datepicker td {
+    padding: 0;
+}
+
+.ui-state-default {
+    background: none !important;
+    text-align: center !important;
+    border: none !important;
+    border-top: 1px solid #ddd !important; 
+    border-left: 1px solid #ddd !important;
+    padding: 12px !important;
+    font-size: 16px !important;
+}
+
+.ui-datepicker-current-day .ui-state-active {
+    background: #04d4c0 !important;
+    color: #fff;
+    font-weight: 500;
+}
+
+tr .ui-datepicker-week-end:last-child a {
+    border-right: none !important;
+}
+

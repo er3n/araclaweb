@@ -1,0 +1,295 @@
+.fixed {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+}
+
+.signup-login-container, .pre-signup, .forgot-password, .signup-with-email, .reservation-container {
+    position: fixed !important;
+    margin: 0;
+    width: 100%;
+    height: inherit;
+    background: #fff;
+    left: 0;
+    top: 100%;
+    right: 0;
+    bottom: 0;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    &.active {
+        top: 0;
+        z-index: 9999;
+    }
+    a {
+        cursor: pointer;
+    }
+    .preloader {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        .spinner {
+            text-align: center;
+            margin-top: 100px;
+            span {
+                display: block;
+                font-size: 20px;
+                font-weight: 500;
+            }
+        }
+    }
+    .info {
+        display: block;
+        padding: 5px 10px;
+        border-radius: 2px;
+        &.error {
+            background: $main-color;
+            color: #fff;
+            font-weight: 400;
+        }
+    }
+    .inner {
+        margin: 20px 25px;
+        box-sizing: border-box;
+        .close-button {
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .title {
+            font-size: 27px;
+            color: #444;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 20px;
+        }
+        .title-small {
+            font-size: 18px;
+            color: $main-color;
+            font-weight: 400;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .facebook-button, .google-button, .register-with-mail-button {
+            display: block;
+            font-weight: 500;
+            color: #fff;
+            background-size: 11px 20px;
+            border-radius: 3px;
+            padding: 12px;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .facebook-button {
+            background: url(../img/icons/facebook-logo.svg) 40px 15px no-repeat #4366B4;
+        }
+        .google-button {
+            color: #444;
+            background: url(../img/icons/google-logo.svg) 40px 15px no-repeat #fff;
+            border: 2px solid #888;
+        }
+        .register-with-mail-button {
+            background: url(../img/icons/envelope.svg) 40px 15px no-repeat;
+            background-size: 18px;
+        }
+        .yada {
+            margin: 15px;
+            font-weight: 300;
+            text-align: center;
+        }
+        input[type=text], input[type=password], input[type=number], input[type=email], input[type=tel], input[type=date] {
+            border: none !important;
+            border: 1px solid #ccc !important;
+            border-radius: 2px;
+            font-size: 19px;
+            color: #666;
+            padding: 10px 15px;
+            width: calc(100% - 30px);
+            outline: none;
+            background-color: #fff;
+            & ~ small {
+                display: none;
+                margin-bottom: 15px;
+            }
+            &:focus {
+                border: 1px solid $main-color !important;
+            }
+            &.email {
+                background: url(../img/icons/mail.svg) calc(100% - 15px) center no-repeat #fff;
+                background-size: 22px 16px;
+            }
+            &.name {
+                background: url(../img/icons/person.svg) calc(100% - 15px) center no-repeat #fff;
+                background-size: 22px 16px;
+            }
+            &.phone {
+                background: url(../img/icons/phone-call.svg) calc(100% - 15px) center no-repeat #fff;
+                background-size: 19px;
+            }
+            &.password {
+                background: url(../img/icons/padlock.svg) calc(100% - 20px) center no-repeat #fff;
+                background-size: 16px 21px;
+            }
+            &.code {
+                background: url(../img/icons/code.svg) calc(100% - 15px) center no-repeat #fff;
+                background-size: 25px;
+            }
+            &.calendar {
+                background: url(../img/icons/small-calendar.svg) calc(100% - 18px) center no-repeat #fff;
+                background-size: 20px
+            }
+            &.adres, &.city {
+                background: url(../img/icons/placeholder.svg) calc(100% - 15px) center no-repeat #fff;
+                background-size: 18px
+            }
+            &.posta-kodu {
+                float: left;
+                margin-right: 15px;
+                width: calc(((100% - 30px) / 2.5) - 32px);
+                background: url(../img/icons/placeholder.svg) calc(100% - 15px) center no-repeat #fff;
+            }
+            &.city {
+                float: left;
+                width: calc(((100% - 30px) / 3 * 2) - 37px);
+            }
+            &.card {
+                background: url(../img/icons/card.svg) calc(100% - 18px) center no-repeat #fff;
+                background-size: 20px;
+                &.month, &.year, &.cvv {
+                    float: left;
+                    background: url(../img/icons/small-calendar.svg) calc(100% - 18px) center no-repeat #fff;
+                    width: calc(((100% - 30px) / 3) - 32px);
+                    margin-right: 15px;
+                }
+                &.cvv {
+                    background: url(../img/icons/code.svg) calc(100% - 15px) center no-repeat #fff;
+                    background-size: 25px;
+                    margin-right: 0;
+                }
+            }
+        }
+        input[type=date] {
+            min-height: 22px;
+        }
+        .sozlesme-container {
+            margin: 20px 0;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        label {
+            a {
+                color: $link-color;
+                font-weight: 400;
+            }
+        }
+        .login-button, .send-reset-button, .register-with-mail-button {
+            background-color: $main-color;
+            border: none;
+            border-radius: 3px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-weight: 500;
+            font-size: 18px;
+            padding: 13px 0;
+            width: 100%;
+            display: block;
+        }
+        .forgot {
+            font-size: 17px;
+            color: $link-color;
+            text-align: center;
+            display: block;
+            margin: 15px 0;
+            font-weight: 400;
+        }
+        .line {
+            display: block;
+            border-bottom: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        .register {
+            color: #444;
+            font-size: 18px;
+            font-weight: 200;
+            display: block;
+            text-align: center;
+            line-height: 25px;
+            a {
+                color: $link-color;
+                font-weight: 400;
+            }
+        }
+    }
+
+
+    @media screen and (max-width: $break-425) {
+        width: 90%;
+        left: 5%;
+        margin-top: 40px;
+        height: 340px;
+    }
+
+    @media screen and (min-width: $break-mobile + 1)  {
+        left: calc(50% - 200px);
+        width: 400px;
+        min-height: 370px;
+        &.active {
+            top: 200px;
+            box-shadow: 0 0 10px 15px rgba(0,0,0,0.05);
+        }
+    }
+}
+
+.forgot-password {
+    p {
+        font-size: 18px;
+        font-weight: 200;
+        color: #444;
+        line-height: 27px;
+        margin-bottom: 30px;
+    }
+    .controls {
+        margin-top: 10px;
+        overflow: hidden;
+        a {
+            float: left;
+            font-size: 18px;
+            font-weight: 400;
+            color: $link-color;
+            padding-top: 10px;
+        }
+        .send-reset-button {
+            float: right;
+            width: inherit;
+            padding: 8px 20px;
+        }
+    }
+}
+
+.signup-with-email {
+    .title {
+        margin-top: 20px;
+    }
+    .card-info, .adres-info {
+        overflow: hidden;
+        p {
+            float: left;
+            width: 33%;
+            input {
+                width: calc(100% - 32px) !important;
+                display: block;
+            }
+        }
+    }
+    .adres-info p {
+        width: 50%;
+    }
+
+    @media screen and (max-width: $break-425) {
+        height: 640px;
+    }
+}

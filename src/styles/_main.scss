@@ -1,0 +1,480 @@
+// begin of the mixins
+
+@mixin widget-search-button {
+    float: left;
+    width: 60px;
+    height: 50px;
+    background: $main-color;
+    border-radius: 3px;
+    background: url(../img/icons/search.svg) center center no-repeat $main-color;
+    background-size: 24px;
+    text-indent: -10000px;
+}
+
+@mixin search-widget {
+    width: 730px;
+    height: 50px;
+    margin: 30px auto;
+    padding: 10px;
+    background: #fff;
+    border-radius: 3px;
+}
+
+@mixin col {
+    float: left;
+    border-right: 1px solid #eee;
+    height: 50px;
+    padding-right: 10px;
+    margin-right: 10px;
+    position: relative;
+}
+
+@mixin col-title {
+    color: $main-color;
+    font-size: 13px;
+    font-weight: 400;
+    display: block;
+    margin-left: 4px;
+}
+
+@mixin col-content {
+    span.content {
+        
+        font-size: 18px;
+        color: #444;
+        font-weight: 400;
+        margin-top: 5px;
+        display: block;
+        padding: 3px 4px;
+        transition: ease all .2s;
+        cursor: pointer;
+        
+        &.active {
+            color: #fff;
+            background-color: $hover-color;
+            border-radius: 2px;
+        }
+
+    }
+}
+
+@mixin parking-points-sub-menu {
+    
+    position: absolute;
+    left: -10px;
+    top: 65px;
+    box-shadow: 0 0 15px rgba(0,0,0,.25);
+    width: 730px;
+    min-height: 100px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 3px;
+
+    & > h4 {
+        font-weight: 500;
+        font-size: 22px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        color: $main-color;
+        display: none;
+    }
+
+    li {
+        
+        list-style: none;
+        
+        a {
+            
+            cursor: pointer;
+            color: #444;
+            font-size: 18px;
+            font-weight: 400;
+            display: block;
+            padding: 5px;
+            border-radius: 2px;
+            
+            .address {
+                float: right;
+                font-size: 14px;
+                font-weight: 400;
+            }
+            &:hover {
+                background: $hover-color;
+                color: #fff;
+            }
+
+        }
+    }
+
+}
+
+@mixin date-picker {
+    margin-top: 10px;
+    overflow: hidden;
+    span {
+        float: left;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 40px;
+        margin-right: 20px;
+        color: $main-color;
+    }
+    select {
+        float: right;
+        font-size: 18px;
+        font-weight: 400;
+        width: 120px;
+        height: 40px;
+        outline: none;
+        border: 1px solid #ccc;
+    }
+}
+
+@mixin date-time-sub-menu {
+    
+    width: calc(200% - 5px);
+    left: -5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    
+    .slider {
+        
+        width: calc(200% + 30px);
+        transition: ease all .2s;
+
+        &.col2 {
+            margin-left: 0;
+        }
+
+        &.col3 {
+            margin-left: calc(-100% - 15px);
+        }
+
+        .content {
+            
+            float: left;
+            width: calc(50% - 15px);
+            margin-right: 15px;
+
+            h4 {
+                font-weight: 400;
+                font-size: 18px;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 5px;
+                margin-bottom: 10px;
+            }
+
+        }
+    }
+}
+
+
+
+@mixin main-320 {
+    margin-top: 48px;
+    
+    h1 {
+        font-size: 24px;
+        padding-top: 80px;
+        font-weight: 600;
+    }
+
+    h2 {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    #search-widget {
+        
+        width: 270px;
+        height: 215px;
+        margin-top: 15px;
+        padding: 20px 10px;
+
+        .col {
+            
+            border-right: none;
+            margin-right: 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #f1f1f1;
+            display: block;
+
+            &.parking-points, &.date-time {
+                width: 100%;
+                .sub-menu {
+                    width: calc(100% - 20px);
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    border-radius: 0;
+                    z-index: 1;
+                }
+            }
+
+            &.parking-points {
+                .sub-menu {
+
+                    h4 {
+                        display: block;
+                        .close {
+                            float: right;
+                        }
+                    }
+                    
+                    ul {
+                        li {
+                            border-bottom: 1px solid #e1e1e1;
+                            a {
+                                overflow: hidden;
+                                span {
+                                    display: block;
+                                    color: #888;
+                                    float: none;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.date-time {
+                .sub-menu {
+                    .slider {
+                        
+                        .content {
+                            h4 {
+                                font-size: 22px;
+                                font-weight: 500;
+                                color: $main-color;
+                                .close {
+                                    float: right;
+                                }
+                            }
+                            .time-picker {
+                                span {
+                                    font-size: 15px;
+                                }
+                                select {
+                                    width: 90px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        .search-btn {
+            width: 100%;
+            text-indent: 0;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 40px;
+            color: #fff;
+            height: 40px;
+            background-size: 18px;
+            background-position: calc(50% - 35px) 10px;
+
+            &.mobile-search-btn {
+                position: absolute;
+                left: 15px;
+                width: calc(100% - 30px);
+                bottom: 50px;
+                height: 50px;
+                line-height: 50px;
+                background-position: calc(50% - 35px) 15px;
+                display: block;
+            }
+        }
+    }
+}
+
+
+// End of mixins
+
+
+
+
+
+
+.main {
+    
+    margin-top: 60px;
+    height: 550px;
+
+    h1 {
+        font-size: 40px;
+        font-weight: 500;
+        color: #fff;
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    h2 {
+        font-size: 27px;
+        font-weight: 300;
+        color: #fff;
+        text-align: center;
+    }
+
+    #search-widget {
+        
+        @include search-widget;
+
+        .col {
+            
+            @include col;
+
+            .title { @include col-title; }
+
+            @include col-content;
+            
+            &.parking-points { width: 255px; }
+            &.date-time { width: 175px; }
+
+            .sub-menu { @include parking-points-sub-menu; }
+            
+            &.date-time {
+                width: 175px;
+                .sub-menu {
+                    @include date-time-sub-menu;
+                    .time-picker {
+                        @include date-picker;
+                    }
+                }
+            }
+
+        }
+
+        .search-btn {
+            @include widget-search-button;
+            &.mobile-search-btn {
+                display: none;
+            }
+        }
+
+    }
+
+    @media screen and (max-width: $break-320) {
+        @include main-320;
+    }
+
+    @media screen and (min-width: $break-320 + 1px) and (max-width: $break-375) {
+        @include main-320;
+        h1 {
+            font-size: 28px;
+        }
+        h2 {
+            font-size: 16px;
+        }
+        #search-widget {
+            width: 320px;
+            .col {
+                &.date-time {
+                    .sub-menu {
+                        .slider {
+                            .content {
+                                .time-picker {
+                                    span {
+                                        font-size: 17px;
+                                        margin-right: 0;
+                                    }
+                                    select {
+                                        width: 120px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @media screen and (min-width: $break-375 + 1px) and (max-width: $break-425) {
+        @include main-320;
+        h1 { 
+            font-size: 32px; 
+            font-weight: 500;
+        }
+        h2 { font-size: 18px; }
+        #search-widget {
+            width: 360px;
+            .col {
+                &.date-time {
+                    .sub-menu {
+                        .slider {
+                            
+                            .content {
+                                .time-picker {
+                                    span {
+                                        font-size: 20px;
+                                        margin-right: 0;
+                                    }
+                                    select {
+                                        width: 120px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @media screen and (min-width: $break-425 + 1px) and (max-width: $break-768) {
+        #search-widget {
+            width: 670px;
+            .col {
+                &.parking-points { 
+                    width: 240px;
+                    .content {
+                        font-size: 16px;
+                        margin-top: 10px;
+                    }
+                    .sub-menu {
+                        width: 670px;
+                    }
+                }
+                &.date-time { 
+                    width: 153px;
+                    .content {
+                        font-size: 16px;
+                        margin-top: 10px;
+                    }
+                    .sub-menu {
+                        .slider {
+                            
+                            .content {
+                                width: 320px;
+                                .time-picker {
+                                    span {
+                                        font-size: 16px;
+                                        margin-right: 0;
+                                    }
+                                    select {
+                                        font-size: 16px;
+                                        width: 100px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @media screen and (min-width: $break-768 + 1px) and (max-width: $break-1024) {
+        
+    }
+    
+}
+
+
