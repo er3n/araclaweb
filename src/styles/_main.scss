@@ -39,7 +39,7 @@
 
 @mixin col-content {
     span.content {
-        
+
         font-size: 18px;
         color: #444;
         font-weight: 400;
@@ -48,7 +48,7 @@
         padding: 3px 4px;
         transition: ease all .2s;
         cursor: pointer;
-        
+
         &.active {
             color: #fff;
             background-color: $hover-color;
@@ -59,7 +59,7 @@
 }
 
 @mixin parking-points-sub-menu {
-    
+
     position: absolute;
     left: -10px;
     top: 65px;
@@ -81,11 +81,11 @@
     }
 
     li {
-        
+
         list-style: none;
-        
+
         a {
-            
+
             cursor: pointer;
             color: #444;
             font-size: 18px;
@@ -93,7 +93,7 @@
             display: block;
             padding: 5px;
             border-radius: 2px;
-            
+
             .address {
                 float: right;
                 font-size: 14px;
@@ -132,14 +132,14 @@
 }
 
 @mixin date-time-sub-menu {
-    
+
     width: calc(200% - 5px);
     left: -5px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0,0,0,0.15);
-    
+
     .slider {
-        
+
         width: calc(200% + 30px);
         transition: ease all .2s;
 
@@ -152,7 +152,7 @@
         }
 
         .content {
-            
+
             float: left;
             width: calc(50% - 15px);
             margin-right: 15px;
@@ -173,7 +173,7 @@
 
 @mixin main-320 {
     margin-top: 48px;
-    
+
     h1 {
         font-size: 24px;
         padding-top: 80px;
@@ -186,14 +186,14 @@
     }
 
     #search-widget {
-        
+
         width: 270px;
         height: 215px;
         margin-top: 15px;
         padding: 20px 10px;
 
         .col {
-            
+
             border-right: none;
             margin-right: 0;
             margin-bottom: 10px;
@@ -222,7 +222,7 @@
                             float: right;
                         }
                     }
-                    
+
                     ul {
                         li {
                             border-bottom: 1px solid #e1e1e1;
@@ -243,7 +243,7 @@
             &.date-time {
                 .sub-menu {
                     .slider {
-                        
+
                         .content {
                             h4 {
                                 font-size: 22px;
@@ -265,7 +265,7 @@
                     }
                 }
             }
-            
+
         }
 
         .search-btn {
@@ -303,7 +303,10 @@
 
 
 .main {
-    
+
+    background: url(../img/hero-desktop.jpg) center bottom;
+    background-size: cover;
+
     margin-top: 60px;
     height: 550px;
 
@@ -323,22 +326,22 @@
     }
 
     #search-widget {
-        
+
         @include search-widget;
 
         .col {
-            
+
             @include col;
 
             .title { @include col-title; }
 
             @include col-content;
-            
+
             &.parking-points { width: 255px; }
             &.date-time { width: 175px; }
 
             .sub-menu { @include parking-points-sub-menu; }
-            
+
             &.date-time {
                 width: 175px;
                 .sub-menu {
@@ -395,11 +398,11 @@
             }
         }
     }
-    
+
     @media screen and (min-width: $break-375 + 1px) and (max-width: $break-425) {
         @include main-320;
-        h1 { 
-            font-size: 32px; 
+        h1 {
+            font-size: 32px;
             font-weight: 500;
         }
         h2 { font-size: 18px; }
@@ -409,7 +412,7 @@
                 &.date-time {
                     .sub-menu {
                         .slider {
-                            
+
                             .content {
                                 .time-picker {
                                     span {
@@ -427,12 +430,12 @@
             }
         }
     }
-    
+
     @media screen and (min-width: $break-425 + 1px) and (max-width: $break-768) {
         #search-widget {
             width: 670px;
             .col {
-                &.parking-points { 
+                &.parking-points {
                     width: 240px;
                     .content {
                         font-size: 16px;
@@ -442,7 +445,7 @@
                         width: 670px;
                     }
                 }
-                &.date-time { 
+                &.date-time {
                     width: 153px;
                     .content {
                         font-size: 16px;
@@ -450,7 +453,7 @@
                     }
                     .sub-menu {
                         .slider {
-                            
+
                             .content {
                                 width: 320px;
                                 .time-picker {
@@ -470,11 +473,11 @@
             }
         }
     }
-    
+
     @media screen and (min-width: $break-768 + 1px) and (max-width: $break-1024) {
-        
+
     }
-    
+
 }
 
 

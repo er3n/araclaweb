@@ -214,7 +214,6 @@
     data () {
       return {
         homepage: '/',
-        url: 'http://52.210.187.139/api',
         user: undefined,
         modal: false,
         signLoginPage: false,
@@ -263,7 +262,7 @@
       authenticate () {
         this.loginError = false
         this.waitForResponse = true
-        fetch(`${this.url}/authenticate`,
+        fetch(`/api/authenticate`,
           {
             method: 'POST',
             headers: {
@@ -285,7 +284,7 @@
           })
       },
       sendResetPassword () {
-        fetch(`${this.url}/account/reset_password/init`, {
+        fetch(`/api/account/reset_password/init`, {
           method: 'POST',
           body: `${this.mailToRemember}`
         })
@@ -339,14 +338,14 @@
       console.log('header yüklendi')
       let token = localStorage.getItem('x-auth-token')
       if (token) {
-        fetch(`${this.url}/authenticate`, {
+        fetch(`/api/authenticate`, {
           headers: {
             'x-auth-token': token
           }
         })
           .then((res) => {
             if (res.status === 200) {
-              fetch(`${this.url}/account`, {
+              fetch(`/api/account`, {
                 headers: {
                   'x-auth-token': token
                 }

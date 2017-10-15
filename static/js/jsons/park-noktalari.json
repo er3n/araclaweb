@@ -1,0 +1,24 @@
+{
+    "parkingPoints": [
+        { 
+            "id": 1,
+            "name": "Arma Kule" 
+        },
+        { 
+            "id": 2,
+            "name": "Bilkent Cyberpark" 
+        },
+        { 
+            "id": 3,
+            "name": "Next Level" 
+        },
+        { 
+            "id": 4,
+            "name": "Base Life Club" 
+        },
+        { 
+            "id": 5,
+            "name": "Beysupark Yaşam Merkezi" 
+        }
+    ]
+}

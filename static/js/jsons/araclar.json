@@ -1,0 +1,72 @@
+{
+    "cars":  [
+        {
+            "id": "7906",
+            "name": "Audi A3 1.6 Tdi",
+            "saatlik": {
+                "fiyat": 18,
+                "ucretsiz_mesafe": 10
+            },
+            "gunluk": {
+                "fiyat": 178,
+                "ucretsiz_mesafe": 120
+            },
+            "haftalik": {
+                "fiyat": 1022,
+                "ucretsiz_mesafe": 480
+            },
+            "mesafe_asimi": 0.50
+        },
+        {
+            "id": "3662",
+            "name": "Volvo V40 T3",
+            "saatlik": {
+                "fiyat": 14,
+                "ucretsiz_mesafe": 10
+            },
+            "gunluk": {
+                "fiyat": 145,
+                "ucretsiz_mesafe": 120
+            },
+            "haftalik": {
+                "fiyat": 819,
+                "ucretsiz_mesafe": 480
+            },
+            "mesafe_asimi": 0.70
+        },
+        {
+            "id": "1",
+            "name": "Volvo V40 D2",
+            "saatlik": {
+                "fiyat": 16,
+                "ucretsiz_mesafe": 10
+            },
+            "gunluk": {
+                "fiyat": 167,
+                "ucretsiz_mesafe": 120
+            },
+            "haftalik": {
+                "fiyat": 924,
+                "ucretsiz_mesafe": 480
+            },
+            "mesafe_asimi": 0.50
+        },
+        {
+            "id": "4564",
+            "name": "Nissan Micra Street",
+            "saatlik": {
+                "fiyat": 9.5,
+                "ucretsiz_mesafe": 10
+            },
+            "gunluk": {
+                "fiyat": 102,
+                "ucretsiz_mesafe": 120
+            },
+            "haftalik": {
+                "fiyat": 546,
+                "ucretsiz_mesafe": 480
+            },
+            "mesafe_asimi": 0.70
+        }
+    ]
+}
