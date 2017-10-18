@@ -210,7 +210,7 @@
 
 <script>
   export default {
-    name: 'HelloWorld',
+    name: 'HeaderComponent',
     data () {
       return {
         homepage: '/',

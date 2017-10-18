@@ -12,8 +12,7 @@
             }}</span>
           <div v-show="selectedColumn === 'col1'" v-cloak class="sub-menu">
             <p v-if="isParkinPointsLoading">Lütfen Bekleyin..</p>
-            <h4>Park Noktası Seçiniz <a @click="closeSubMenus" class="close"><img src="../img/icons/close.svg" alt="Kapat"
-                                                                                  height="16659"></a></h4>
+            <h4>Park Noktası Seçiniz <a @click="closeSubMenus" class="close"><img src="../img/icons/close.svg" alt="Kapat" height="16"></a></h4>
             <ul>
               <li v-for="item in parkingPoints">
                 <a @click="selectParkingPoint(item)">{{ item.name }} <span class="address">{{ item.description }}</span></a>
@@ -156,9 +155,7 @@
       </div>
     </div>
 
-
     <CarSlider />
-
 
     <Calculator />
 
@@ -379,7 +376,7 @@
         this.endDate = day.date
       },
       checkAvailableCars () {
-
+        this.ajaxRequest = true
       }
 
     },
@@ -494,7 +491,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
   @import "../styles/global";
   @import "../styles/main";
   @import "../styles/section";
