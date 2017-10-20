@@ -8,11 +8,11 @@
             <h4>0850 840 2722</h4>
           </div>
           <div class="social-buttons">
-            <a href="#" rel="nofollow"><img src="../img/icons/social/facebook.svg" height="20" alt="Facebook"></a>
-            <a href="#" rel="nofollow"><img src="../img/icons/social/twitter.svg" height="20" alt="Twitter"></a>
-            <a href="#" rel="nofollow"><img src="../img/icons/social/instagram.svg" height="20" alt="Instagram"></a>
-            <a href="#" rel="nofollow"><img src="../img/icons/social/linkedin.svg" height="20" alt="Linkedin"></a>
-            <a href="#" rel="nofollow"><img src="../img/icons/social/google-plus.svg" height="20" alt="Google Plus"></a>
+            <a href="https://www.facebook.com/araclasosyal/" rel="nofollow" target="_blank"><img src="../img/icons/social/facebook.svg" height="20" alt="Facebook"></a>
+            <a href="https://twitter.com/araclasosyal" rel="nofollow" target="_blank"><img src="../img/icons/social/twitter.svg" height="20" alt="Twitter"></a>
+            <a href="https://www.instagram.com/araclasosyal/" rel="nofollow" target="_blank"><img src="../img/icons/social/instagram.svg" height="20" alt="Instagram"></a>
+            <a href="https://www.linkedin.com/company/aracla/" rel="nofollow" target="_blank"><img src="../img/icons/social/linkedin.svg" height="20" alt="Linkedin"></a>
+            <a href="https://plus.google.com/116000688088106360092" rel="nofollow" target="_blank"><img src="../img/icons/social/google-plus.svg" height="20" alt="Google Plus"></a>
           </div>
         </div>
         <div class="apps-and-visa">

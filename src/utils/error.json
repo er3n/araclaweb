@@ -1,0 +1,33 @@
+{
+    "error": {
+        "title": "Hata Sayfası!",
+        "403": "Bu sayfaya erişmeye yetkiniz yok.",
+        "canNotExistForReservation": "Seçilen zaman aralığında, ilgili paylaşım noktasında musait araç bulunmamaktadır. Araç durumları hakkında detaylı bilgiye <a href='https://aracla.com/arac-durumlari' target='_blank' >buradan</a> bakabilirsiniz.",
+        "anotherReservationAlreadyActive": "Birden fazla bekleyen rezervasyonunuz olamaz. Detaylı bilgi için çağrı merkezini arayın.",
+        "reservationPickUpTimeShouldBeSmallerThanRestricted": "Alış tarihi ileri bir zaman olmalıdır",
+        "reservationDropOffTimeShouldGreaterThanPickUpTime": "Teslim tarihi alış tarihinde en az {{params[0]}} saat fazla olmalıdır",
+        "reservationWeeklyMinIntervalError": "Haftalık kiralama süresi en az 7 gün olmalıdır",
+        "reservationMonthlyMinIntervalError": "Aylık kiralama süresi en az 1 ay olmalıdır",
+        "invalidMonthOrYear": "Geçersiz Ay / Yıl",
+        "invalidCvc": "Geçersiz Cvc",
+        "paymentInfoDoesNotExists": "Geçerli bir ödeme yöntemi bulunamadı",
+        "invalidLogin": "Geçersiz Kullanıcı Adı",
+        "reservationStatusIsNotDeletable": "Rezervasyonun durumu silinmek için uygun değil",
+        "reservationOutOfWorkTimes": "Çalışma saatleri dışında bir saat seçilmemelidir. Çalışma saatleri haftaiçi 08:00-18:00 arasıdır.",
+        "canNotFindMembershipFee": "Üyelik ücreti ödenmediği için rezervasyon yapılamadı.",
+        "noCarExistsForCreateTrip": "Araç bulunamadığı için seyahat oluşturulamıyor. Detaylı bilgi için çağrı merkezini arayın.",
+        "mustHaveCardNoForDirectCarAssigments": "Rezervasyonda plaka bilgisi alınabilmesi için ilgili kullanıcıda kart bilgisi olmalıdır.",
+        "md0": "3d secure onaylanmadı",
+        "md1": "Onaylanmış",
+        "md2": "Kart sahibi banka veya Kart 3D-Secure Üyesi Değil",
+        "md3": "Kart prefixi 3D-Secure sisteminde tanımlı değil",
+        "md4": "Authentication Attempt",
+        "md5": "Sistem ulaşılabilir değil",
+        "md6": "3D-Secure Hatası",
+        "md7": "Sistem Hatası",
+        "md8": "Geçersiz Kart",
+        "md9": "Üye İşyeri 3D-Secure sistemine kayıtlı değil"
+
+
+    }
+}

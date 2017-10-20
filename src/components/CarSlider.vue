@@ -347,7 +347,7 @@ export default {
 
   @media screen and (min-width: $break-laptop + 1) {
     background: #F5F5F5;
-    padding: 0 15px;
+    padding: 30px 15px;
     .slide {
       box-shadow: 0 0 20px rgba(0, 0, 0, .1);
     }

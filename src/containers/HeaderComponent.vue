@@ -1,8 +1,7 @@
 <template>
   <header>
     <div class="modal" v-if="modal" v-cloak></div>
-
-    <a href="#" class="logo">
+    <a href="/" class="logo">
       <img src="../img/logo.png" srcset="../img/logo_2x.png 2x" alt="Aracla Logo">
     </a>
 
@@ -289,7 +288,7 @@
           body: `${this.mailToRemember}`
         })
           .then((res) => {
-            console.log('password reset gönderildi')
+            console.log('şifre sıfırlama gönderildi')
           })
       },
       logout () {

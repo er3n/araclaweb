@@ -2,6 +2,7 @@
   <div>
 
     <div class="main" style="">
+      <AraclaNotification ref="notification" />
       <h1>Araç Kiralama Fiyatları</h1>
       <h2>5 TL ‘ den başlayan fiyatlarla şimdi araçlayın!</h2>
       <div id="search-widget" v-cloak v-click-outside="closeSubMenus">
@@ -118,6 +119,8 @@
       </div>
     </div>
 
+    <CarSlider />
+
     <div id="dort-adim">
       <div class="section">
         <div class="inner">
@@ -154,8 +157,6 @@
         </div>
       </div>
     </div>
-
-    <CarSlider />
 
     <Calculator />
 
@@ -303,14 +304,17 @@
 </template>
 
 <script>
-  import Calculator from '../components/Calculator'
-  import DatePicker from '../components/DatePicker'
-  import CarSlider from '../components/CarSlider'
-  import OfficeSlider from '../components/OfficeSlider'
+  import Calculator from '@/components/Calculator'
+  import DatePicker from '@/components/DatePicker'
+  import CarSlider from '@/components/CarSlider'
+  import OfficeSlider from '@/components/OfficeSlider'
+  import AraclaNotification from '@/components/AraclaNotification'
+  import {handleException} from '@/utils/ExceptionUtils'
+  import axios from 'axios'
 
   export default {
     name: 'HomePage',
-    components: {Calculator, DatePicker, CarSlider, OfficeSlider},
+    components: {Calculator, DatePicker, CarSlider, OfficeSlider, AraclaNotification},
     data () {
       return {
         active: false,
@@ -376,7 +380,26 @@
         this.endDate = day.date
       },
       checkAvailableCars () {
-        this.ajaxRequest = true
+        let reservationParams = {
+          dropOffDate: this.dropOffDate,
+          dropOffHour: this.dropOffHour,
+          pickUpDate: this.pickUpDate,
+          pickUpHour: this.pickUpHour,
+          pickUpLocation: this.selectedParkingPoint.code
+        }
+        axios.post('/api/calculateAvailableReservations', reservationParams).then((response) => {
+          sessionStorage.setItem('reservationParams', JSON.stringify(reservationParams))
+          this.$router.push({
+            name: 'SelectCar', params: { availableCars: response.data, parkingPoints: this.parkingPoints }
+          })
+        }).catch((err) => {
+          handleException(err, (desc) => {
+            this.$refs.notification.goster({
+              title: 'Hata!',
+              content: desc
+            })
+          })
+        })
       }
 
     },
@@ -497,5 +520,6 @@
   @import "../styles/section";
   @import "../styles/advantage";
   @import "../styles/dortadim";
+
 </style>
 
