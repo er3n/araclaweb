@@ -40,16 +40,9 @@
           <span class="title">Teslim Tarihi</span>
           <span class="content">{{ dropOffDate }}</span>
         </div>
-        <div class="item">
-          <span class="title">Toplam Fiyat</span>
-          <span class="content fiyat">{{ totalPrice || 0 }} ₺</span>
-        </div>
         <div class="item" v-if="selectedCar">
           <span class="title">Seçilen Araç</span>
           <span class="content">{{ selectedCar.model.mark.name }}</span>
-        </div>
-        <div class="item">
-          <a @click="confirmReservation" class="confirm-button" v-if="totalPrice">Rezervasyonu Onayla</a>
         </div>
       </div>
     </div>
@@ -115,7 +108,7 @@ $text-color: #4D5966;
 
 @mixin container {
   margin: 30px auto;
-  width: 960px;
+  width: 1000px;
   padding: 0 30px;
   overflow: hidden;
 }
@@ -221,6 +214,39 @@ $text-color: #4D5966;
 }
 .description {
   @include car-description;
+}
+
+
+@mixin sidebar {
+  width: calc(25% - 40px);
+  background: #fff;
+  float: left;
+  box-shadow: 0 0 30px rgba(0,0,0,.07);
+  padding: 30px 20px;
+}
+@mixin item {
+  margin-bottom: 25px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .title {
+    font-size: 14px;
+    color: #888;
+    display: block;
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
+  .content {
+    font-size: 20px;
+    color: $text-color;
+    font-weight: 500;
+  }
+}
+.sidebar {
+  @include sidebar;
+  .item {
+    @include item;
+  }
 }
 
 

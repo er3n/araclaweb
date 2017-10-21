@@ -343,9 +343,9 @@
     methods: {
       loadParkingPoints () {
         this.selectedColumn = 'col1'
-        fetch(`/api/offices`)
+        axios.get(`/api/offices`)
           .then((res) => {
-            return res.json()
+            return res.data
           })
           .then((res) => {
             this.parkingPoints = res
@@ -354,9 +354,9 @@
           })
       },
       loadTimes () {
-        fetch('static/js/jsons/saatler.json')
+        axios.get('static/js/jsons/saatler.json')
           .then((res) => {
-            return res.json()
+            return res.data
           })
           .then((res) => {
             this.startTimeOptions = res.startTime

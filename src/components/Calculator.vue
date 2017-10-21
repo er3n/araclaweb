@@ -54,6 +54,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
     name: 'HelloWorld',
     data () {
@@ -78,8 +79,8 @@
     methods: {
       loadCars () {
         this.araclar = []
-        fetch('static/js/jsons/araclar.json')
-          .then((res) => { return res.json() })
+        axios.get('static/js/jsons/araclar.json')
+          .then((res) => { return res.data })
           .then((res) => {
             this.cars = res.cars
             localStorage.setItem('cars', JSON.stringify(this.cars))

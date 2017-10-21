@@ -208,6 +208,7 @@
 
 
 <script>
+  import axios from 'axios'
   export default {
     name: 'HeaderComponent',
     data () {
@@ -261,21 +262,17 @@
       authenticate () {
         this.loginError = false
         this.waitForResponse = true
-        fetch(`/api/authenticate`,
+        axios.post(`/api/authenticate`,
+          `username=${this.username}&password=${this.password}`,
           {
-            method: 'POST',
             headers: {
-              'Accept': 'application/json',
               'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: `username=${this.username}&password=${this.password}`
+            }
           })
           .then((res) => {
             if (res.status === 200) {
-              res.json().then((json) => {
-                localStorage.setItem('x-auth-token', json.token)
-                document.location.reload()
-              })
+              localStorage.setItem('x-auth-token', res.data.token)
+              document.location.reload()
             } else {
               this.waitForResponse = false
               this.loginError = true
@@ -283,13 +280,15 @@
           })
       },
       sendResetPassword () {
-        fetch(`/api/account/reset_password/init`, {
-          method: 'POST',
-          body: `${this.mailToRemember}`
+        axios.post('/api/account/reset_password/init',
+        `${this.mailToRemember}`, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
         })
-          .then((res) => {
-            console.log('şifre sıfırlama gönderildi')
-          })
+        .then((res) => {
+          console.log('şifre sıfırlama gönderildi')
+        })
       },
       logout () {
         localStorage.removeItem('x-auth-token')
@@ -334,27 +333,25 @@
       }
     },
     created () {
-      console.log('header yüklendi')
+      console.log('Header yüklendi')
       let token = localStorage.getItem('x-auth-token')
       if (token) {
-        fetch(`/api/authenticate`, {
+        axios.get(`/api/authenticate`, {
           headers: {
             'x-auth-token': token
           }
         })
           .then((res) => {
             if (res.status === 200) {
-              fetch(`/api/account`, {
+              axios.get(`/api/account`, {
                 headers: {
                   'x-auth-token': token
                 }
               })
                 .then((res) => {
                   if (res.status === 200) {
-                    res.json()
-                      .then((json) => {
-                        this.user = json
-                      })
+                    console.log(res.data)
+                    this.user = res.data
                   }
                 })
             }
