@@ -37,7 +37,6 @@
 
 <script>
   import Slick from 'vue-slick'
-
   export default {
     name: 'CarSlider',
     components: {Slick},

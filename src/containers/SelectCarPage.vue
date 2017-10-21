@@ -4,27 +4,43 @@
       <div class="cars-container" v-cloak>
         <div v-for="car in availableCars" class="car-item" :id="car.model.id">
           <div class="car-inner">
+            
+            <div :class="{ confirm: true, active: car == confirmedCar}">
+              <span class="title">Rezervasyon Onay</span>
+              <p>Aşağıda rezervasyon bilgileri verilen aracın rezervasyonunu onaylıyor musunuz?</p>
+              <div class="reservation-detail">
+                <div class="item">
+                  <span class="title">Park Noktası</span>
+                  <span class="content">{{ pickUpLocation }}</span>
+                </div>
+                <div class="item">
+                  <span class="title">Alış Tarihi</span>
+                  <span class="content">{{ pickUpDate }}</span>
+                </div>
+                <div class="item">
+                  <span class="title">Teslim Tarihi</span>
+                  <span class="content">{{ dropOffDate }}</span>
+                </div>
+              </div>
+              <span class="price">₺ {{ car.totalPrice }}<small> / Toplam Fiyat</small></span>
+              <div class="option">
+                <a href="#" class="make-reserve">Onaylıyorum</a>
+                <a href="#" class="make-reserve make-cancel">Vazgeç</a>
+              </div>
+            </div>
+
             <div class="car-image">
-              <!-- <img :src="car.model.imageUrl" :alt="car.model.name"> -->
-              <img src="http://localhost:8080/static/img/micra-2.d96ca2a.jpg" alt="">
+              <img :src="car.model.imageUrl" alt="car.model.mark.name">
             </div>
             <div class="description">
               <h2>{{ car.model.mark.name }} {{ car.model.name }}</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, repellendus?</p>
-              <ul>
-                <li><span class="per-hour"><img src="../img/icons/per-hour.svg" height="17"> Saatlik: 10 ₺ <note>(10km ücretsiz mesafe)</note></span></li>
-                <li><span class="per-day"><img src="../img/icons/per-day.svg" height="17"> Günlük: 120 ₺ <note>(120km ücretsiz mesafe)</note></span></li>
-                <li><span class="per-day"><img src="../img/icons/per-week.svg" height="17"> Haftalık: 120 ₺ <note>(120km ücretsiz mesafe)</note></span></li>
-              </ul>
+              <p>{{ car.model.description }}</p>
               <span class="price">₺ {{ car.totalPrice }}<small> / Toplam Fiyat</small></span>
-              <a href="#" class="make-reserve">Rezerve Et</a>
+              <span class="free-km">{{ car.totalFreeOdemeter }} KM ücretsiz mesafe</span>
+              <a v-if="user" @click="showConfirmModal(car)" class="make-reserve">Rezerve Et</a>
+              <a v-if="!user" class="login-for-reserve">Rezerve Etmek için giriş yapın</a>
             </div>
           </div>
-          <!-- <div class="select">
-            <small>Kiralama Fiyatı</small>
-            <h3>{{ car.totalPrice }} ₺</h3>
-            <a @click="selectCar(car)" class="select-button">Bu Aracı Seç</a>
-          </div> -->
         </div>
       </div>
       <div class="sidebar" v-cloak>
@@ -60,7 +76,9 @@ export default {
       pickUpDate: undefined,
       dropOffDate: undefined,
       pickUpLocation: undefined,
-      totalPrice: undefined
+      totalPrice: undefined,
+      user: undefined,
+      confirmedCar: false
     }
   },
   methods: {
@@ -71,14 +89,8 @@ export default {
         }
       })
     },
-    confirmReservation () {
-      console.log('login olmamış')
-      // var header = window.header
-      // header.openPage('signLoginPage')
-    },
-    selectCar (car) {
-      this.selectedCar = car
-      this.totalPrice = this.selectedCar.totalPrice
+    showConfirmModal (car) {
+      this.confirmedCar = car
     }
   },
   created () {
@@ -87,6 +99,7 @@ export default {
     this.findParkingPoint(reservationParams.pickUpLocation)
     this.pickUpDate = `${reservationParams.pickUpDate} - ${reservationParams.pickUpHour}`
     this.dropOffDate = `${reservationParams.dropOffDate} - ${reservationParams.dropOffHour}`
+    this.user = window.Header.user
   }
 }
 </script>
@@ -133,15 +146,108 @@ $text-color: #4D5966;
 @mixin car-inner {
   padding: 40px 30px;
   overflow: hidden;
+  position: relative;
 }
 @mixin car-image {
   width: 35%;
   margin-right: 5%;
   float: left;
-  padding: 80px 0;
+  padding: 60px 0;
   img {
     max-width: 100%;
   }
+}
+@mixin confirm {
+  padding: 40px 30px;
+  position: absolute;
+  width: calc(100% - 60px);
+  height: calc(100% - 80px);
+  background: #fff;
+  right: -100%;
+  top: 0;
+  transition: ease all .2s;
+  opacity: 0;
+  &.active {
+    right: 0;
+    opacity: 1;
+  }
+  .title {
+    display: block;
+    font-size: 24px;
+    font-weight: 400;
+    color: $text-color;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #777;
+    margin-bottom: 40px;
+  }
+  .reservation-detail {
+    overflow: hidden;
+    margin-bottom: 30px;
+    .item {
+      float: left;
+      margin-right: 30px;
+    }
+    .title {
+      font-size: 14px;
+      color: #888;
+      display: block;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+    .content {
+      font-size: 20px;
+      color: $text-color;
+      font-weight: 500;
+    }
+  }
+  .price {
+    display: block;
+    margin-top: 20px;
+    font-size: 38px;
+    font-weight: 500;
+    color: $main-color;
+    small {
+      color: #aaa;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+  .option {
+    float: right;
+  }
+  .make-reserve {
+    cursor: pointer;
+    background: $hover-color;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 7px 16px;
+    display: block;
+    float: left;
+    margin-left: 20px;
+    &.make-cancel {
+      background: $main-color;
+    }
+  }
+}
+.confirm {
+  @include confirm;
+}
+@mixin make-reserve-button {
+  cursor: pointer;
+  background: $hover-color;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 7px 16px;
+  display: block;
+  float: right;
 }
 @mixin car-description {
   float: left;
@@ -158,28 +264,6 @@ $text-color: #4D5966;
     color: lighten($text-color, 20%);
     font-weight: 400;
   }
-  ul {
-    li {
-      font-weight: 400;
-      list-style-type: none;
-      display: block;
-      margin-bottom: 15px;
-      span {
-        font-size: 16px;
-        font-weight: 400;
-        color: lighten($text-color, 15%);
-        img {
-          float: left;
-          margin-right: 10px;
-        }
-        note {
-          color: $link-color;
-          font-weight: 400;
-          font-size: 16px;
-        }
-      }
-    }
-  }
   .price {
     display: block;
     margin-top: 20px;
@@ -192,15 +276,11 @@ $text-color: #4D5966;
       font-weight: 400;
     }
   }
-  .make-reserve {
-    background: $hover-color;
-    color: #fff;
-    border-radius: 30px;
-    font-size: 15px;
-    font-weight: 400;
-    padding: 7px 16px;
-    display: block;
-    float: right;
+  .make-reserve, .login-for-reserve {
+    @include make-reserve-button;
+  }
+  .login-for-reserve {
+    background: $table-td-current;
   }
 }
 .car-item {
@@ -249,6 +329,13 @@ $text-color: #4D5966;
   }
 }
 
+.free-km {
+  color: #a282e2;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 20px;
+}
 
 [v-cloak] {
   display: none !important;

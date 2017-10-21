@@ -271,7 +271,7 @@
           })
           .then((res) => {
             if (res.status === 200) {
-              localStorage.setItem('x-auth-token', res.data.token)
+              localStorage.setItem('token', res.data.token)
               document.location.reload()
             } else {
               this.waitForResponse = false
@@ -291,7 +291,7 @@
         })
       },
       logout () {
-        localStorage.removeItem('x-auth-token')
+        localStorage.removeItem('token')
         this.user = undefined
       },
       toggleHeaderMenu () {
@@ -334,7 +334,7 @@
     },
     created () {
       console.log('Header yüklendi')
-      let token = localStorage.getItem('x-auth-token')
+      let token = localStorage.getItem('token')
       if (token) {
         axios.get(`/api/authenticate`, {
           headers: {
@@ -350,13 +350,13 @@
               })
                 .then((res) => {
                   if (res.status === 200) {
-                    console.log(res.data)
                     this.user = res.data
                   }
                 })
             }
           })
       }
+      window.Header = this
     }
 
   }
