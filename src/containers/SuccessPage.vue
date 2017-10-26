@@ -1,8 +1,8 @@
 <template>
     <div id="success-page">
       <div class="inner">
-        <div v-if="reservationDetail" class="success">
-          <h3>Teşekkürler!</h3>
+        <div class="success">
+          <h3><img src="../img/icons/checked.svg" height="48"> Teşekkürler!</h3>
           <p>Rezervasyonunuz başarıyla oluşturuldu. Rezervasyon bilgileri mail adresinize gönderildi.</p>
         </div>
       </div>
@@ -19,9 +19,9 @@ export default {
   },
   created () {
     console.log('success oluşturuldu')
-    if (!this.reservationDetail) {
-      location.href = '/'
-    }
+    // if (!this.reservationDetail) {
+    //   location.href = '/'
+    // }
   }
 }
 </script>
@@ -44,6 +44,7 @@ export default {
       color: #333;
       font-weight: 400;
       margin-bottom: 30px;
+      line-height: 30px;
     }
     p {
       font-size: 24px;
