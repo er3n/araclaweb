@@ -283,8 +283,8 @@ $text-color: #4D5966;
     background: $hover-color;
     color: #fff;
     border-radius: 30px;
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
     padding: 7px 16px;
     display: block;
     float: left;
@@ -312,8 +312,8 @@ $text-color: #4D5966;
   float: left;
   width: 60%;
   h2 {
-    font-size: 21px;
-    font-weight: 400;
+    font-size: 22px;
+    font-weight: 500;
     margin-bottom: 20px;
   }
   p {

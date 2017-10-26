@@ -13,38 +13,38 @@
             <ul class="icons-list">
               <li class="item">
                 <div class="item-icon">
-                  <img class="icon" src="../img/icons/ucretsiz-yakit.svg" width="80" alt="Ücretsiz Yakıt">
+                  <img class="icon" src="../img/icons/dollar-symbol.svg" width="80" alt="Ücretsiz Yakıt">
                 </div>
                 <div class="item-text">
-                  <h3>Ücretsiz Yakıt</h3>
-                  <p class="richtext">Taşıt tanıma sistemi Shell istasyonlarından aracınızı ücretsiz doldurursunuz.</p>
+                  <h3>Ücretsiz Üyelik</h3>
+                  <p class="richtext">Süper Araçla Klübünde yıllık üyelik ücreti ödemezsiniz ve depozito ücreti alınmaz.</p>
                 </div>
               </li>
               <li class="item">
                 <div class="item-icon">
-                  <img class="icon" src="../img/icons/kaskolu-arac.svg" width="80" alt="Ücretsiz Yakıt">
+                  <img class="icon" src="../img/icons/dollar-gain.svg" width="80" alt="Ücretsiz Yakıt">
                 </div>
                 <div class="item-text">
-                  <h3>Kaskolu Araçlar</h3>
-                  <p class="richtext">Tüm araçlarımız muafiyetli kasko ile güvence altındadır.</p>
+                  <h3>Araçladıkça Kazan</h3>
+                  <p class="richtext">Araçladıkça puan kazandıran ve biriken puanlarınızla araçlatan sistem.</p>
                 </div>
               </li>
               <li class="item">
                 <div class="item-icon">
-                  <img class="icon" src="../img/icons/yol-yardim.svg" width="80" alt="Yol Yardım">
+                  <img class="icon" src="../img/icons/maps-and-flags.svg" width="80" alt="Yol Yardım">
                 </div>
                 <div class="item-text">
-                  <h3>Yol Yardım</h3>
-                  <p class="richtext">Taşıt tanıma sistemi Shell istasyonlarından aracınızı ücretsiz doldurursunuz.</p>
+                  <h3>Ücretsiz Konuma Çağırma</h3>
+                  <p class="richtext">Park noktasından bağımsız, tek tuşla ücretsiz konumunuza aracınızı çağırabilirsiniz.</p>
                 </div>
               </li>
               <li class="item">
                 <div class="item-icon">
-                  <img class="icon" src="../img/icons/aracla-club.png" width="80" alt="Yol Yardım">
+                  <img class="icon" src="../img/icons/invite-envelope.svg" width="80" alt="Yol Yardım">
                 </div>
                 <div class="item-text">
-                  <h3>Superaracla Club</h3>
-                  <p class="richtext">Aracla.com ' un üyelerine özel olarak sunduğu, araçladıkça kazandıran araclaclub uygulaması.</p>
+                  <h3>Davet Et, Kazan</h3>
+                  <p class="richtext">Arkadaşlarınızı Aracla.com ' a davet edin. Kullandıkça siz de kazanın.</p>
                 </div>
               </li>
             </ul>

@@ -1,5 +1,12 @@
 <template>
-    <div id="success-page">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum asperiores magni quod repellat eius, vero non. Placeat illo sed, non rerum mollitia expedita praesentium, optio ab, minus nemo vero blanditiis.</div>
+    <div id="success-page">
+      <div class="inner">
+        <div v-if="reservationDetail" class="success">
+          <h3>Teşekkürler!</h3>
+          <p>Rezervasyonunuz başarıyla oluşturuldu. Rezervasyon bilgileri mail adresinize gönderildi.</p>
+        </div>
+      </div>
+    </div>
 </template>
 
 <script>
@@ -9,17 +16,38 @@ export default {
     return {
       reservationDetail: this.$route.params.reservationDetail
     }
+  },
+  created () {
+    console.log('success oluşturuldu')
+    if (!this.reservationDetail) {
+      location.href = '/'
+    }
   }
 }
 </script>
 
 <style lang="scss">
 #success-page {
-  position: absolute;
   padding-top: 60px;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  min-height: 500px;
+  .inner {
+    width: 1024px;
+    margin: auto;
+    .success {
+      margin: 200px 0;
+    }
+    h3 {
+      font-size: 60px;
+      color: #333;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+    p {
+      font-size: 24px;
+    }
+  }
 }
 </style>
