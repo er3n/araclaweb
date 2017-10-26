@@ -9,6 +9,12 @@ export const handleException = (err, desc) => {
   let errorParams = err.response.data.params
 
   let keySplit = errorMessage.split('.')
+
+  if (keySplit.length <= 1) {
+    desc(errorMessage)
+    return
+  }
+
   let errorDescription = errors[keySplit[0]][keySplit[1]]
 
   if (errorParams) {

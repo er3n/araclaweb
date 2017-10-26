@@ -3,8 +3,10 @@
 
     <div class="main" style="">
       <AraclaNotification ref="notification" />
-      <h1>Araç Kiralama Fiyatları</h1>
-      <h2>5 TL ‘ den başlayan fiyatlarla şimdi araçlayın!</h2>
+      <!-- <h1>Araç Kiralama Fiyatları</h1>
+      <h2>5 TL ‘ den başlayan fiyatlarla şimdi araçlayın!</h2> -->
+      <h1>aracla.com</h1>
+      <h2>Türkiyenin Saatlik Araç Kiralama Platformu</h2>
       <div id="search-widget" v-cloak v-click-outside="closeSubMenus">
         <div class="col parking-points">
           <span class="title">Park Noktası</span>
@@ -86,42 +88,75 @@
     <div id="avantaj">
       <div class="section">
         <div class="inner">
-          <h2>Aracla.com ' un avantajları</h2>
-          <a href="#ucretsiz-yakit" class="col4 white-bg advantage-item">
-            <img class="icon" src="../img/icons/ucretsiz-yakit.svg" height="30" alt="Ücretsiz Yakıt">
-            <h3>Ücretsiz Yakıt</h3>
-            <p>Taşıt tanıma sistemi ile ücretsiz yakıt.</p>
-            <span class="detayli-incele">DETAYLI İNCELE <img src="../img/icons/right-arrow.svg" height="7"
-                                                             alt="Detaylı İncele"></span>
-          </a>
-          <a href="#en-ucuz-arac-kiralama" class="col4 white-bg advantage-item">
-            <img class="icon" src="../img/icons/kaskolu-arac.svg" height="30" alt="Ücretsiz Yakıt">
-            <h3>Kaskolu Araç</h3>
-            <p>Rent a Car kasko güvenceli araçlar.</p>
-            <span class="detayli-incele">DETAYLI İNCELE <img src="../img/icons/right-arrow.svg" height="7"
-                                                             alt="Detaylı İncele"></span>
-          </a>
-          <a href="" class="col4 white-bg advantage-item">
-            <img class="icon" src="../img/icons/yol-yardim.svg" height="30" alt="Yol Yardım">
-            <h3>Yol Yardım</h3>
-            <p>7/24 Yol Yardım Hizmeti</p>
-            <span class="detayli-incele">DETAYLI İNCELE <img src="../img/icons/right-arrow.svg" height="7"
-                                                             alt="Detaylı İncele"></span>
-          </a>
-          <a href="" class="col4 white-bg advantage-item">
-            <img class="icon" src="../img/icons/aracla-club.png" height="30" alt="Yol Yardım">
-            <h3>Superaracla Club</h3>
-            <p>Araçladıkça kazandıran vip klüp</p>
-            <span class="detayli-incele">DETAYLI İNCELE <img src="../img/icons/right-arrow.svg" height="7"
-                                                             alt="Detaylı İncele"></span>
-          </a>
+          <div class="intro">
+            <h2>Neden Aracla.com?</h2>
+            <p class="richtext">
+              aracla.com ile size en yakın park noktasından dilediğiniz aracı uygun fiyatlardan hızlı ve kolay bir şekilde saatlik ya da günlük kiralayabilirsiniz.
+            </p>
+          </div>
+          <div class="block">
+            <div class="icons-block">
+              <ul class="icons-list">
+                <li class="item">
+                  <div class="item-icon">
+                    <img class="icon" src="../img/icons/ucretsiz-yakit.svg" width="80" alt="Ücretsiz Yakıt">
+                  </div>
+                  <div class="item-text">
+                    <h3>Ücretsiz Yakıt</h3>
+                    <p class="richtext">Taşıt tanıma sistemi Shell istasyonlarından aracınızı ücretsiz doldurursunuz.</p>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="item-icon">
+                    <img class="icon" src="../img/icons/kaskolu-arac.svg" width="80" alt="Ücretsiz Yakıt">
+                  </div>
+                  <div class="item-text">
+                    <h3>Kaskolu Araçlar</h3>
+                    <p class="richtext">Tüm araçlarımız muafiyetli kasko ile güvence altındadır.</p>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="item-icon">
+                    <img class="icon" src="../img/icons/yol-yardim.svg" width="80" alt="Yol Yardım">
+                  </div>
+                  <div class="item-text">
+                    <h3>Yol Yardım</h3>
+                    <p class="richtext">Taşıt tanıma sistemi Shell istasyonlarından aracınızı ücretsiz doldurursunuz.</p>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="item-icon">
+                    <img class="icon" src="../img/icons/aracla-club.png" width="80" alt="Yol Yardım">
+                  </div>
+                  <div class="item-text">
+                    <h3>Superaracla Club</h3>
+                    <p class="richtext">Aracla.com ' un üyelerine özel olarak sunduğu, araçladıkça kazandıran araclaclub uygulaması.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="image-block">
+              <img src="https://www.car2go.com/media/data/mercedes-benz/gla-dinner-silver-car-1818_502x20.jpg" alt="">
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <CarSlider />
+    <AboutVideo />
 
-    <div id="dort-adim">
+    <CarPricing />
+
+    <CarParks />
+
+    <RentalSteps />
+
+    <AraclaClub />
+
+
+    <!-- <CarSlider /> -->
+
+    <!-- <div id="dort-adim">
       <div class="section">
         <div class="inner">
           <h2>Kolay ve Hızlı Araç Kiralama</h2>
@@ -156,12 +191,13 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <Calculator />
+    <!-- <Calculator /> -->
 
-    <OfficeSlider />
+    <!-- <OfficeSlider /> -->
 
+<!-- 
     <div id="ucretsiz-yakit">
       <div class="section">
         <div class="inner">
@@ -176,13 +212,12 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div id="en-ucuz-arac-kiralama">
+    <!-- <div id="en-ucuz-arac-kiralama">
       <div class="section">
         <div class="inner">
           <h2>Kaskolu En Ucuz Araç Kiralama</h2>
-          <!-- <img src="../img/arac-kirala.jpg" alt="En Ucuz Araç Kiralama"> -->
           <img src="../img/kasko.jpg" alt="En Ucuz Araç Kiralama">
           <h3>Kaskolu Saatlik, Günlük ve Aylık Araç Kiralama</h3>
           <p>
@@ -195,9 +230,9 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div id="yol-yardim">
+    <!-- <div id="yol-yardim">
       <div class="section">
         <div class="inner">
           <h2>Yol Yardım</h2>
@@ -214,8 +249,8 @@
           </p>
         </div>
       </div>
-    </div>
-
+    </div> -->
+<!-- 
     <div class="section" id="aracla-club">
       <img src="https://res.cloudinary.com/aracla-com/image/upload/v1495802346/club-white.png" alt="Superaracla Club"
            width="64">
@@ -255,20 +290,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="video">
-      <!-- <video poster="../img/transparent.png">
-          <source src="video/trailer.mp4" type="video/mp4">
-          <source src="video/trailer-mobile.m4v" type="video/m4v">
-      </video> -->
-      <div class="center">
-        <h3>BİZ KİMİZ?</h3>
-        <a href="#" class="play-button"></a>
-      </div>
-    </div>
 
-    <div id="keywords">
+    <!-- <div id="keywords">
       <div class="section">
         <div class="inner">
           <h2>Kategoriler</h2>
@@ -298,7 +323,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 </template>
@@ -308,13 +333,18 @@
   import DatePicker from '@/components/DatePicker'
   import CarSlider from '@/components/CarSlider'
   import OfficeSlider from '@/components/OfficeSlider'
+  import AboutVideo from '@/components/AboutVideo'
+  import CarPricing from '@/components/CarPricing'
+  import CarParks from '@/components/CarParks'
+  import RentalSteps from '@/components/RentalSteps'
+  import AraclaClub from '@/components/AraclaClub'
   import AraclaNotification from '@/components/AraclaNotification'
   import {handleException} from '@/utils/ExceptionUtils'
   import axios from 'axios'
 
   export default {
     name: 'HomePage',
-    components: {Calculator, DatePicker, CarSlider, OfficeSlider, AraclaNotification},
+    components: {Calculator, DatePicker, CarSlider, OfficeSlider, AraclaNotification, AboutVideo, CarPricing, CarParks, RentalSteps, AraclaClub},
     data () {
       return {
         active: false,

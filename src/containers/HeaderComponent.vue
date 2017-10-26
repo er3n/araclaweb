@@ -1,5 +1,6 @@
 <template>
   <header>
+    <AraclaNotification ref="notification" />
     <div class="modal" v-if="modal" v-cloak></div>
     <a href="/" class="logo">
       <img src="../img/logo.png" srcset="../img/logo_2x.png 2x" alt="Aracla Logo">
@@ -208,9 +209,11 @@
 
 
 <script>
+  import AraclaNotification from '@/components/AraclaNotification'
   import axios from 'axios'
   export default {
     name: 'HeaderComponent',
+    components: {AraclaNotification},
     data () {
       return {
         homepage: '/',
@@ -283,11 +286,15 @@
         axios.post('/api/account/reset_password/init',
         `${this.mailToRemember}`, {
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'text/plain'
           }
         })
         .then((res) => {
-          console.log('şifre sıfırlama gönderildi')
+          this.closePage('passwordResetPage')
+          this.$refs.notification.goster({
+            title: 'Şifre Sıfırlama',
+            content: res.data
+          })
         })
       },
       logout () {

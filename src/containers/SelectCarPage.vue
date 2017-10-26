@@ -1,6 +1,13 @@
 <template>
   <div class="search-result-page">
     <div class="container">
+      <div v-if="isConfirming" class="white-modal">
+        <div class="preloader">
+          <img src="../img/icons/confirm-preloader.svg" width="100">
+          <span class="title">Lütfen bekleyiniz</span>
+        </div>
+      </div>
+      <AraclaNotification ref="notification" />
       <div class="cars-container" v-cloak>
         <div v-for="car in availableCars" class="car-item" :id="car.model.id">
           <div class="car-inner">
@@ -21,11 +28,15 @@
                   <span class="title">Teslim Tarihi</span>
                   <span class="content">{{ dropOffDate }}</span>
                 </div>
+                <div class="item">
+                  <span class="title">KM Başı</span>
+                  <span class="content">₺ {{ car.odometerPrice }}</span>
+                </div>
               </div>
               <span class="price">₺ {{ car.totalPrice }}<small> / Toplam Fiyat</small></span>
               <div class="option">
-                <a href="#" class="make-reserve">Onaylıyorum</a>
-                <a href="#" class="make-reserve make-cancel">Vazgeç</a>
+                <a @click="confirmReservation(car)" class="make-reserve">Onaylıyorum</a>
+                <a @click="cancelConfirm" class="make-reserve make-cancel">Vazgeç</a>
               </div>
             </div>
 
@@ -66,8 +77,12 @@
 </template>
 
 <script>
+import AraclaNotification from '@/components/AraclaNotification'
+import {handleException} from '@/utils/ExceptionUtils'
+import axios from 'axios'
 export default {
   name: 'SelectCarPage',
+  components: {AraclaNotification},
   data () {
     return {
       availableCars: this.$route.params.availableCars,
@@ -78,7 +93,9 @@ export default {
       pickUpLocation: undefined,
       totalPrice: undefined,
       user: undefined,
-      confirmedCar: false
+      confirmedCar: false,
+      pickUpLocationJSON: undefined,
+      isConfirming: false
     }
   },
   methods: {
@@ -86,11 +103,53 @@ export default {
       this.parkingPoints.map((parkingPoint) => {
         if (parkingPoint.code === location) {
           this.pickUpLocation = parkingPoint.name
+          this.pickUpLocationJSON = parkingPoint
         }
       })
     },
     showConfirmModal (car) {
       this.confirmedCar = car
+    },
+    cancelConfirm () {
+      this.confirmedCar = undefined
+    },
+    confirmReservation (car) {
+      let pickUpDate = JSON.parse(sessionStorage.getItem('reservationParams')).pickUpDate.split('/')
+      let pickUpHour = JSON.parse(sessionStorage.getItem('reservationParams')).pickUpHour
+      let pickUpTimeForPost = new Date(`${pickUpDate[2]}-${pickUpDate[1]}-${pickUpDate[0]} ${pickUpHour}:00`)
+
+      let dropOffDate = JSON.parse(sessionStorage.getItem('reservationParams')).dropOffDate.split('/')
+      let dropOffHour = JSON.parse(sessionStorage.getItem('reservationParams')).dropOffHour
+      let dropOfftimeForPost = new Date(`${dropOffDate[2]}-${dropOffDate[1]}-${dropOffDate[0]} ${dropOffHour}:00`)
+
+      let token = localStorage.getItem('token')
+      let body = {
+        model: car.model,
+        dropOffLocation: this.pickUpLocationJSON,
+        pickUpLocation: this.pickUpLocationJSON,
+        pickUpTime: pickUpTimeForPost,
+        dropOffTime: dropOfftimeForPost
+      }
+      this.isConfirming = true
+      axios.post(`/api/myreservations/confirm`, body, {
+        headers: {
+          'x-auth-token': token
+        }
+      }).then((response) => {
+        this.isConfirming = false
+        this.$router.push({
+          name: 'SuccessPage', params: { pickUpLocation: this.pickUpLocation, pickUpDate: this.pickUpDate, pickUpHour: this.pickUpHour, selectedCar: this.selectedCar }
+        })
+      })
+      .catch((err) => {
+        this.isConfirming = false
+        handleException(err, (desc) => {
+          this.$refs.notification.goster({
+            title: 'Hata!',
+            content: desc
+          })
+        })
+      })
     }
   },
   created () {
@@ -335,6 +394,28 @@ $text-color: #4D5966;
   font-weight: 500;
   display: block;
   margin-bottom: 20px;
+}
+
+.white-modal {
+  background: rgba(255, 255, 255, .95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  .preloader {
+    width: 300px;
+    height: 300px;
+    margin: 250px auto;
+    text-align: center;
+    .title {
+      display: block;
+      color: #444;
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
 }
 
 [v-cloak] {

@@ -44,7 +44,7 @@ export default {
     background: #fff;
     padding: 30px 40px;
     border-radius: 1px;
-    z-index: 1;
+    z-index: 100;
     box-shadow: 0 0 25px 5px rgba(0,0,0,.1);
     transition: ease-out all .3s;
     &.active {
