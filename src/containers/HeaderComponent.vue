@@ -1,6 +1,6 @@
 <template>
   <header>
-    <AraclaNotification ref="notification" />
+    <AraclaNotification ref="notification"/>
     <div class="modal" v-if="modal" v-cloak></div>
     <a href="/" class="logo">
       <img src="../img/logo.png" srcset="../img/logo_2x.png 2x" alt="Aracla Logo">
@@ -8,10 +8,8 @@
 
     <div class="top-menus">
       <ul>
-        <li><a href="#">Park Noktaları</a></li>
-        <li><a href="#">Araçlar</a></li>
-        <li><a href="#">Hakkımızda</a></li>
-        <li><a href="#">İletişim</a></li>
+        <li><a href="/iletisim">İletişim</a></li>
+        <li><a href="/hakkimizda">Hakkımızda</a></li>
       </ul>
       <div class="mobile-menu">
         <a @click="toggleHeaderMenu" v-click-outside="closeMenu">
@@ -19,10 +17,8 @@
         </a>
         <div v-if="isMenuOpened" v-cloak class="submenu">
           <ul>
-            <li><a href="#">Park Noktaları</a></li>
-            <li><a href="#">Araçlar</a></li>
-            <li><a href="#">Hakkımızda</a></li>
-            <li><a href="#">İletişim</a></li>
+            <li><a href="/hakkimizda">Hakkımızda</a></li>
+            <li><a href="/iletisim">İletişim</a></li>
           </ul>
         </div>
       </div>
@@ -40,10 +36,9 @@
           <img src="../img/icons/expand-button.svg" height="10">
         </a>
         <div v-if="subMenuOpened" class="profile-submenu">
-          <a href="hesap/ayarlar">Ayarlar</a>
-          <a href="hesap/odeme-bilgisi">Ödeme Bilgisi</a>
-          <a href="hesap/sifre">Şifre</a>
-          <a href="hesaplar">Oturumlar</a>
+          <a href="/app.html#!/settings">Ayarlar</a>
+          <a href="/app.html#!/myPaymentInfo">Ödeme Bilgisi</a>
+          <a href="/app.html#!/password">Şifre</a>
           <a @click="logout">Çıkış</a>
         </div>
       </div>
@@ -61,9 +56,10 @@
             <span>Lütfen bekleyin</span>
           </div>
         </div>
-        <a @click="closePage('signLoginPage')" class="close-button" data-relation="close"><img src="../img/icons/close.svg"
-                                                                                               alt="Kapat"
-                                                                                               width="20"></a>
+        <a @click="closePage('signLoginPage')" class="close-button" data-relation="close"><img
+          src="../img/icons/close.svg"
+          alt="Kapat"
+          width="20"></a>
         <p v-if="loginError" class="info error">
           Hatalı Kullanıcı adı ya da şifre
         </p>
@@ -79,7 +75,7 @@
         <button @click="authenticate" class="login-button">Giriş Yap</button>
         <a @click="openPage('passwordResetPage', 'signLoginPage')" class="forgot">Parolanızı mı unuttunuz?</a>
         <div class="line"></div>
-        <p class="register">Hesabınız yok mu? <a @click="openPage('preSignPage', 'signLoginPage')">Kaydolun</a></p>
+        <p class="register">Hesabınız yok mu? <a href="/app.html#!/register">Kaydolun</a></p>
       </div>
     </div>
 
@@ -88,7 +84,8 @@
       v-if="preSignPage"
       class="pre-signup active">
       <div class="inner">
-        <a @click="closePage('preSignPage')" class="close-button"><img src="../img/icons/close.svg" alt="Kapat" width="20"></a>
+        <a @click="closePage('preSignPage')" class="close-button"><img src="../img/icons/close.svg" alt="Kapat"
+                                                                       width="20"></a>
         <a href="#" class="facebook-button" data-relation="facebook">Facebook ile Kaydol</a>
         <a href="#" class="google-button" data-relation="google">Google ile Kaydol</a>
         <p class="yada">ya da</p>
@@ -110,9 +107,10 @@
         <p>Kayıt olurken kullandığınız email adresini yazarak mailinize şifre sıfırlama bağlantısı gönderin.</p>
         <input type="text" name="forgotEmail" class="email" placeholder="Email Adresiniz" v-model="mailToRemember">
         <div class="controls">
-          <a @click="openPage('signLoginPage', 'passwordResetPage')" class="black"><img src="../img/icons/back-arrow.svg"
-                                                                                        alt="Giriş Sayfasına Dön"
-                                                                                        height="12"> Giriş Sayfasına Dön</a>
+          <a @click="openPage('signLoginPage', 'passwordResetPage')" class="black"><img
+            src="../img/icons/back-arrow.svg"
+            alt="Giriş Sayfasına Dön"
+            height="12"> Giriş Sayfasına Dön</a>
           <button @click="sendResetPassword" class="send-reset-button">Gönder</button>
         </div>
       </div>
@@ -193,11 +191,11 @@
           <div class="sozlesme-container">
             <p>
               <input id="uyelikSozlesmesi" type="checkbox" name="registerSatisSozlemesi" required>
-              <label for="uyelikSozlesmesi"><a href="#">Üyelik Sözleşmesini</a> kabul ediyorum</label>
+              <label for="uyelikSozlesmesi"><a href="/uyelik-sozlesmesi">Üyelik Sözleşmesini</a> kabul ediyorum</label>
             </p>
             <p>
               <input id="mobilSatisSozlesmesi" type="checkbox" name="mobilSatisSozlemesi" required>
-              <label for="mobilSatisSozlesmesi"><a href="#">Mesafelı Satış Sözleşmesini</a> kabul ediyorum</label>
+              <label for="mobilSatisSozlesmesi"><a href="/mesafeli-satis-sozlesmesi">Mesafelı Satış Sözleşmesini</a> kabul ediyorum</label>
             </p>
           </div>
           <a class="register-with-mail-button">Kaydı Tamamla</a>
@@ -266,7 +264,7 @@
         this.loginError = false
         this.waitForResponse = true
         axios.post(`/api/authenticate`,
-          `username=${this.username}&password=${this.password}`,
+          `username=${this.username}&password=${this.password}&rememberMe=true`,
           {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
@@ -275,27 +273,31 @@
           .then((res) => {
             if (res.status === 200) {
               localStorage.setItem('token', res.data.token)
-              document.location.reload()
+              window.location.replace('/')
             } else {
               this.waitForResponse = false
               this.loginError = true
             }
+          }).catch(err => {
+            console.error(err)
+            this.loginError = true
+            this.waitForResponse = false
           })
       },
       sendResetPassword () {
         axios.post('/api/account/reset_password/init',
-        `${this.mailToRemember}`, {
-          headers: {
-            'Content-Type': 'text/plain'
-          }
-        })
-        .then((res) => {
-          this.closePage('passwordResetPage')
-          this.$refs.notification.goster({
-            title: 'Şifre Sıfırlama',
-            content: res.data
+          `${this.mailToRemember}`, {
+            headers: {
+              'Content-Type': 'text/plain'
+            }
           })
-        })
+          .then((res) => {
+            this.closePage('passwordResetPage')
+            this.$refs.notification.goster({
+              title: 'Şifre Sıfırlama',
+              content: res.data
+            })
+          })
       },
       logout () {
         localStorage.removeItem('token')
@@ -361,6 +363,8 @@
                   }
                 })
             }
+          }).catch(() => {
+            localStorage.removeItem('token')
           })
       }
       window.Header = this

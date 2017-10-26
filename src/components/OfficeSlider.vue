@@ -76,7 +76,6 @@
 <style lang="scss">
   @import "../styles/global";
   @import "../styles/section";
-  @import "../styles/slick/slick.css";
 
   #park-noktalarimiz {
     padding-top: 30px;

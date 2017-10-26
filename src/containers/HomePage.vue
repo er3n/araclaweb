@@ -197,7 +197,7 @@
 
     <!-- <OfficeSlider /> -->
 
-<!-- 
+<!--
     <div id="ucretsiz-yakit">
       <div class="section">
         <div class="inner">
@@ -250,7 +250,7 @@
         </div>
       </div>
     </div> -->
-<!-- 
+<!--
     <div class="section" id="aracla-club">
       <img src="https://res.cloudinary.com/aracla-com/image/upload/v1495802346/club-white.png" alt="Superaracla Club"
            width="64">
@@ -410,6 +410,14 @@
         this.endDate = day.date
       },
       checkAvailableCars () {
+        let missingData = !this.dropOffDate || !this.dropOffHour || !this.pickUpDate || !this.pickUpHour || !this.selectedParkingPoint.code
+        if (missingData) {
+          this.$refs.notification.goster({
+            title: 'Hata!',
+            content: 'Eksik bilgi girdiniz.'
+          })
+          return
+        }
         let reservationParams = {
           dropOffDate: this.dropOffDate,
           dropOffHour: this.dropOffHour,

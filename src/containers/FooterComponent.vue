@@ -16,22 +16,22 @@
           </div>
         </div>
         <div class="apps-and-visa">
-          <a href="#"><img src="../img/google-play.png" alt="Google Play" width="90"></a>
-          <a href="#"><img src="../img/appstore.png" alt="Google Play" width="90"></a>
-          <a href="#"><img src="../img/visa.png" alt="Google Play" width="90"></a>
+          <a href="https://play.google.com/store/apps/details?id=com.bimobil.biarac"><img src="../img/google-play.png" alt="Google Play" width="90"></a>
+          <a href="https://itunes.apple.com/tr/app/biarac/id1094970230?mt=8"><img src="../img/appstore.png" alt="Google Play" width="90"></a>
+          <a href="#"><img src="../img/visa.png" alt="Visa" width="90"></a>
         </div>
       </div>
       <div class="row" id="footer-links">
         <ul>
-          <li><a href="#">Üyelik Sözleşmesi</a></li>
-          <li><a href="#">Gizlilik Sözleşmesi</a></li>
-          <li><a href="#">Mesafeli Satış Sözleşmesi</a></li>
-          <li><a href="#">Teslimat ve İade</a></li>
+          <li><a href="/uyelik-sozlesmesi">Üyelik Sözleşmesi</a></li>
+          <li><a href="/gizlilik">Gizlilik Sözleşmesi</a></li>
+          <li><a href="/mesafeli-satis-sozlesmesi">Mesafeli Satış Sözleşmesi</a></li>
+          <li><a href="/teslim-iade">Teslimat ve İade</a></li>
         </ul>
         <ul>
-          <li><a href="#">SSS</a></li>
-          <li><a href="#">Hakkımızda</a></li>
-          <li><a href="#">İletişim</a></li>
+          <li><a href="/sss">SSS</a></li>
+          <li><a href="/hakkimizda">Hakkımızda</a></li>
+          <li><a href="/iletisim">İletişim</a></li>
         </ul>
       </div>
       <div class="row" id="lead-row">

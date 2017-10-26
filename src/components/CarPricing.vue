@@ -51,13 +51,8 @@
           </div>
         </div>
       </div>
-      <div class="line">
-        <div class="button">
-          <a href="#" class="rent-now">Şimdi Araçlayın</a>
-        </div>
-      </div>
     </div>
-  </div>  
+  </div>
 </template>
 
 <script>
