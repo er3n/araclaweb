@@ -1,0 +1,82 @@
+$break-320: 320px;
+$break-375: 375px;
+$break-425: 425px;
+$break-768: 768px;
+$break-1024: 1024px;
+
+
+@import "fonts";
+@import "colors";
+
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "gt";
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+}
+
+.inner {
+    max-width: 1024px;
+    margin: auto;
+}
+
+
+
+
+.intro {
+    padding: 100px 0 0;
+    margin: 0 auto 50px;
+    max-width: 650px;
+    text-align: center;
+}
+
+
+
+
+
+.section {
+    
+    margin: auto;
+    padding: 30px 15px;
+    overflow: hidden;
+
+    h2 {
+        font-size: 48px;
+        display: block;
+        font-weight: 500;
+        margin-bottom: 15px;
+        color: #111;
+    }
+
+    h3 {
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+
+
+    @media screen and (max-width: $break-320) {
+        h2 {
+            font-size: 38px;
+        }
+    }
+
+
+}
+
+
+
+
+
+.richtext {
+    margin: auto;
+    color: #222;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: .5px;
+}

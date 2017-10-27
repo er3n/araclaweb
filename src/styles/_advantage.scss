@@ -1,204 +1,67 @@
-#avantaj {
-    margin: 0 auto 120px;
-    .inner {
-        max-width: 1024px;
-        margin: auto;
-    }
-    .intro {
-        padding: 100px 20px 0;
-        margin: 0 auto 50px;
-        max-width: 650px;
-        text-align: center;
-    }
-    h2 {
-        font-size: 48px;
-        color: #333;
-    }
-    .richtext {
-        margin: auto;
-        color: #222;
-        font-size: 18px;
-        line-height: 24px;
-        letter-spacing: .5px;
-    }
+@import "common";
 
+@mixin avantaj {
     .block {
-        overflow: hidden;
+        display: flex;
+        margin-bottom: 100px;
         .icons-block {
-            width: calc(50% - 20px);
+            width: 50%;
             margin-right: 20px;
-            float: left;
-            .item {
-                margin-bottom: 10px;
-            }
+            order: 1;
             .icons-list {
-                .item-icon {
-                    display: table-cell;
-                    padding: 0 20px 10px 0;
-                    width: 15%;
-                }
-                .item-text {
-                    display: table-cell;
-                    vertical-align: middle;
-                    h3 {
-                        font-size: 28px;
-                        color: #333;
+                list-style: none;
+                    .item {
+                        margin: 20px 0;
+                        padding-left: 20px;
+                        .item-icon {
+                            display: table-cell;
+                            padding: 0 20px 10px 0;
+                        }
+                        .item-text {
+                            display: table-cell;
+                            vertical-align: middle;
+                            h3 {
+                                font-size: 28px;
+                                color: #333;
+                            }
+                        }
                     }
-                }
             }
         }
         .image-block {
-            float: left;
+            order: 2;
             width: 50%;
+            img {
+                width: 100%;
+            }
         }
     }
 }
 
-// @mixin advantage {
-    
-//     // padding: 15px;
-//     margin: 100px auto;
-//     overflow: hidden;
+#avantaj {
+    @include avantaj;
 
-//     h2 {
-//         font-size: 48px;
-//         color: #333;
-//         text-align: center;
-//         line-height: 1.6;
-//     }
-
-
-//     .col4 {
-//         float: left;
-//         width: calc(25% - 11px);
-//         &:last-child {
-//             margin-right: 0;
-//         }
-//     }
-
-//     .advantage-item {
-//         @include advantage-item;
-//     }
-// }
-
-// @mixin advantage-item {
-    
-//     text-decoration: none;
-//     padding: 20px 5px 10px 5px;
-//     border-radius: 2px;
-//     text-align: center;
-//     border-right: 1px solid #e1e1e1;
-//     background: #fff;
-//     &:last-child {
-//         border-right: none;
-//     }
-    
-//     & > img {
-//         height: 48px;
-//     }
-
-//     h3 {
-//         font-size: 20px;
-//         margin-top: 15px;
-//         color: #444;
-//         font-weight: 500;
-//     }
-    
-//     p {
-//         margin-top: 15px;
-//         font-size: 18px;
-//         color: #555;
-//         line-height: 1.6;
-//         font-weight: 400;
-//         height: 40px;
-//     }
-    
-//     .detayli-incele {
-        
-//         background: #fff;
-//         color: #FF595F;
-//         font-size: 16px;
-//         font-weight: 400;
-//         text-decoration: none;
-//         margin-top: 15px;
-//         display: block;
-
-//         img {
-//             height: 14px;
-//             margin: 0;
-//         }
-//     }
-// }
-
-// @mixin break-320 {
-//     .col4 {
-//         width: calc(50% - 11px);
-//         &:nth-child(2n+1) {
-//             border-right: none;
-//         }
-//         img {
-//             height: 36px;
-//         }
-//         h3 {
-//             font-size: 17px;
-//         }
-//         p {
-//             font-size: 16px;
-//             line-height: 1.4;
-//             font-weight: 300;
-//             height: 40px;
-//         }
-//         .detayli-incele {
-//             font-size: 13px;
-//             img {
-//                 height: 9px;
-//             }
-//         }
-//     }
-// }
-
-// #avantaj {
-    
-//     @include advantage;
-
-//     @media screen and (max-width: $break-320) {
-//         @include break-320;
-//     }
-
-//     @media screen and (min-width: $break-320 + 1px) and (max-width: $break-425) {
-//         @include break-320;
-//         .col4 {
-//             p {
-//                 height: 50px;
-//             }
-//         }
-//     }
-
-//     @media screen and (min-width: $break-425 + 1px) and (max-width: $break-768) {
-//         .col4 {
-//             p {
-//                 font-size: 17px;
-//                 font-weight: 300;
-//                 line-height: 1.3;
-//             }
-//             .detayli-incele {
-//                 font-size: 14px;
-//                 img {
-//                     height: 12px;
-//                 }
-//             }
-//         }
-//     }
-
-//     @media screen and (min-width: $break-768 + 1) and (max-width: $break-1024) {
-//         .col4 {
-//             p {
-//                 font-size: 18px;
-//                 height: 50px;
-//                 font-weight: 300;
-//             }
-//         }
-//     }
-
-
-// }
+    @media screen and (max-width: $break-425) {
+        .block {
+            margin-bottom: 80px;
+            flex-direction: column;
+            .icons-block, .image-block {
+                width: 100%;
+            }
+            .icons-block {
+                order: 2;
+                margin-top: 50px;
+                .icons-list {
+                    .item {
+                        .item-icon {
+                            width: 20%;
+                        }
+                    }
+                }
+            }
+            .image-block {
+                order: 1;
+            }
+        }
+    }
+}

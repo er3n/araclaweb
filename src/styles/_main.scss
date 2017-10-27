@@ -1,5 +1,5 @@
 // begin of the mixins
-
+@import "common";
 @mixin widget-search-button {
     float: left;
     width: 60px;
@@ -17,7 +17,6 @@
     margin: 30px auto;
     padding: 10px;
     background: #fff;
-    border-radius: 3px;
 }
 
 @mixin col {
@@ -40,8 +39,8 @@
 @mixin col-content {
     span.content {
 
-        font-size: 18px;
-        color: #444;
+        font-size: 19px;
+        color: #333;
         font-weight: 400;
         margin-top: 5px;
         display: block;
@@ -177,7 +176,7 @@
     h1 {
         font-size: 24px;
         padding-top: 80px;
-        font-weight: 600;
+        font-weight: 500;
     }
 
     h2 {
@@ -299,20 +298,18 @@
 
 
 
-
-
-
 .main {
 
     // background: url(../img/hero-desktop.jpg) center bottom;
-    background: url(https://assets.volvocars.com/tr/~/media/turkey/images/custom/volvo-v40-pdp.png?w=1920) center top;
+    // background: url(https://assets.volvocars.com/tr/~/media/turkey/images/custom/volvo-v40-pdp.png?w=1920) center top;
+    background: url(https://res.cloudinary.com/aracla-com/image/upload/c_scale,w_1600/v1509107107/volvo-v40-pdp_eiyp3c.webp) center top;
     background-size: cover;
 
     margin-top: 60px;
     height: 700px;
 
     h1 {
-        font-size: 72px;
+        font-size: 64px;
         font-weight: 500;
         color: #fff;
         text-align: center;
@@ -321,7 +318,7 @@
 
     h2 {
         font-size: 36px;
-        font-weight: 600;
+        font-weight: 500;
         color: #fff;
         text-align: center;
     }
@@ -369,12 +366,12 @@
     }
 
     @media screen and (min-width: $break-320 + 1px) and (max-width: $break-375) {
-        @include main-320;
         h1 {
-            font-size: 28px;
+            font-size: 48px;
         }
         h2 {
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: 500;
         }
         #search-widget {
             width: 320px;
@@ -402,11 +399,15 @@
 
     @media screen and (min-width: $break-375 + 1px) and (max-width: $break-425) {
         @include main-320;
+        height: 500px;
         h1 {
-            font-size: 32px;
+            font-size: 44px;
             font-weight: 500;
         }
-        h2 { font-size: 18px; }
+        h2 { 
+            font-size: 18px; 
+            font-weight: 500;
+        }
         #search-widget {
             width: 360px;
             .col {
@@ -433,6 +434,7 @@
     }
 
     @media screen and (min-width: $break-425 + 1px) and (max-width: $break-768) {
+        height: 800px;
         #search-widget {
             width: 670px;
             .col {
@@ -473,10 +475,6 @@
                 }
             }
         }
-    }
-
-    @media screen and (min-width: $break-768 + 1px) and (max-width: $break-1024) {
-
     }
 
 }

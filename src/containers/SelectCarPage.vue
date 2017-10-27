@@ -28,12 +28,9 @@
                   <span class="title">Teslim Tarihi</span>
                   <span class="content">{{ dropOffDate }}</span>
                 </div>
-                <div class="item">
-                  <span class="title">KM Başı</span>
-                  <span class="content">₺ {{ car.odometerPrice }}</span>
-                </div>
               </div>
               <span class="price">₺ {{ car.totalPrice }}<small> / Toplam Fiyat</small></span>
+              <span class="free-km">{{ car.totalFreeOdemeter }} KM ücretsiz mesafe <em>/ Ücretsiz mesafe aşımında KM başı <strong>{{ car.odometerPrice }} ₺</strong> ödersiniz.</em></span>
               <div class="option">
                 <a @click="confirmReservation(car)" class="make-reserve">Onaylıyorum</a>
                 <a @click="cancelConfirm" class="make-reserve make-cancel">Vazgeç</a>
@@ -55,21 +52,23 @@
         </div>
       </div>
       <div class="sidebar" v-cloak>
-        <div class="item">
-          <span class="title">Park Noktası</span>
-          <span class="content">{{ pickUpLocation }}</span>
-        </div>
-        <div class="item">
-          <span class="title">Alış Tarihi</span>
-          <span class="content">{{ pickUpDate }}</span>
-        </div>
-        <div class="item">
-          <span class="title">Teslim Tarihi</span>
-          <span class="content">{{ dropOffDate }}</span>
-        </div>
-        <div class="item" v-if="selectedCar">
-          <span class="title">Seçilen Araç</span>
-          <span class="content">{{ selectedCar.model.mark.name }}</span>
+        <div class="wrapper">
+          <div class="item">
+            <span class="title">Park Noktası</span>
+            <span class="content">{{ pickUpLocation }}</span>
+          </div>
+          <div class="item">
+            <span class="title">Alış Tarihi</span>
+            <span class="content">{{ pickUpDate }}</span>
+          </div>
+          <div class="item">
+            <span class="title">Teslim Tarihi</span>
+            <span class="content">{{ dropOffDate }}</span>
+          </div>
+          <div class="item" v-if="selectedCar">
+            <span class="title">Seçilen Araç</span>
+            <span class="content">{{ selectedCar.model.mark.name }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -159,16 +158,15 @@ export default {
     this.pickUpDate = `${reservationParams.pickUpDate} - ${reservationParams.pickUpHour}`
     this.dropOffDate = `${reservationParams.dropOffDate} - ${reservationParams.dropOffHour}`
     this.user = window.Header.user
+    console.log(this.availableCars)
   }
 }
 </script>
 
 <style lang="scss">
-@import "../styles/global";
-@import "../styles/colors";
-@import "../styles/section";
+@import "../styles/common";
 
-$text-color: #4D5966;
+$text-color: #333;
 
 @mixin search-result-page {
   background: #f5f5f5;
@@ -180,18 +178,29 @@ $text-color: #4D5966;
 
 @mixin container {
   margin: 30px auto;
-  width: 1000px;
-  padding: 0 30px;
-  overflow: hidden;
+  max-width: 1024px;
+  padding: 0 20px;
+  display: flex;
+  align-items: flex-start;
+  
+  @media screen and (max-width: $break-768) {
+    flex-direction: column;
+  }
 }
 .container {
   @include container;
 }
 
 @mixin cars-container {
-  float: left;
+  order: 1;
   width: 73%;
   margin-right: 2%;
+  
+  @media screen and (max-width: $break-768) {
+    order: 2;
+    width: 100%;
+    margin-right: 0;
+  }
 }
 .cars-container {
   @include cars-container;
@@ -202,20 +211,8 @@ $text-color: #4D5966;
   margin-bottom: 30px;
   box-shadow: 0 0 30px rgba(0,0,0,.07);
 }
-@mixin car-inner {
-  padding: 40px 30px;
-  overflow: hidden;
-  position: relative;
-}
-@mixin car-image {
-  width: 35%;
-  margin-right: 5%;
-  float: left;
-  padding: 60px 0;
-  img {
-    max-width: 100%;
-  }
-}
+
+
 @mixin confirm {
   padding: 40px 30px;
   position: absolute;
@@ -235,13 +232,13 @@ $text-color: #4D5966;
     font-size: 24px;
     font-weight: 400;
     color: $text-color;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   p {
     font-size: 16px;
     font-weight: 400;
-    color: #777;
-    margin-bottom: 40px;
+    color: #333;
+    margin-bottom: 20px;
   }
   .reservation-detail {
     overflow: hidden;
@@ -308,13 +305,45 @@ $text-color: #4D5966;
   display: block;
   float: right;
 }
-@mixin car-description {
+
+.car-item {
+  @include car-item;
+}
+.car-inner {
+  padding: 40px 30px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+
+  @media screen and (max-width: $break-425) {
+    flex-direction: column;
+  }
+}
+.car-image {
+  width: 35%;
+  margin-right: 5%;
+  float: left;
+  padding: 60px 0;
+  img {
+    max-width: 100%;
+  }
+  @media screen and (max-width: $break-425) {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    img {
+      height: 120px;
+    }
+  }
+}
+.description {
   float: left;
   width: 60%;
   h2 {
     font-size: 22px;
     font-weight: 500;
     margin-bottom: 20px;
+    color: #333;
   }
   p {
     font-size: 17px;
@@ -341,50 +370,61 @@ $text-color: #4D5966;
   .login-for-reserve {
     background: $table-td-current;
   }
-}
-.car-item {
-  @include car-item;
-}
-.car-inner {
-  @include car-inner;
-}
-.car-image {
-  @include car-image;
-}
-.description {
-  @include car-description;
+
+  @media screen and (max-width: $break-425) {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
 
 
-@mixin sidebar {
-  width: calc(25% - 40px);
-  background: #fff;
-  float: left;
-  box-shadow: 0 0 30px rgba(0,0,0,.07);
-  padding: 30px 20px;
-}
-@mixin item {
-  margin-bottom: 25px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-  .title {
-    font-size: 14px;
-    color: #888;
-    display: block;
-    font-weight: 400;
-    margin-bottom: 5px;
-  }
-  .content {
-    font-size: 20px;
-    color: $text-color;
-    font-weight: 500;
-  }
-}
 .sidebar {
-  @include sidebar;
+  order: 2;
+  flex: flex-basis;
+  width: 25%;
+  background: #fff;
+  box-shadow: 0 0 30px rgba(0,0,0,.07);
+  margin-bottom: 30px;
+  .wrapper {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+  }
   .item {
-    @include item;
+    margin-bottom: 25px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .title {
+      font-size: 14px;
+      color: #888;
+      display: block;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+    .content {
+      font-size: 20px;
+      color: $text-color;
+      font-weight: 500;
+    }
+  }
+
+  @media screen and (max-width: $break-425) {
+    order: 1;
+    width: 100%;    
+  }
+
+  @media screen and (min-width: $break-425 + 1px) and (max-width: $break-768) {
+    order: 1;
+    width: 100%;
+
+    .wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+      .item {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
@@ -394,6 +434,11 @@ $text-color: #4D5966;
   font-weight: 500;
   display: block;
   margin-bottom: 20px;
+  em {
+    strong {
+      font-weight: 600;
+    }
+  }
 }
 
 .white-modal {

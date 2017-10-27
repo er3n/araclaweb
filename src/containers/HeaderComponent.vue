@@ -8,8 +8,8 @@
 
     <div class="top-menus">
       <ul>
-        <li><a href="/iletisim">İletişim</a></li>
         <li><a href="/hakkimizda">Hakkımızda</a></li>
+        <li><a href="/iletisim">İletişim</a></li>
       </ul>
       <div class="mobile-menu">
         <a @click="toggleHeaderMenu" v-click-outside="closeMenu">

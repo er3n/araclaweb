@@ -3,8 +3,6 @@
 
     <div class="main" style="">
       <AraclaNotification ref="notification" />
-      <!-- <h1>Araç Kiralama Fiyatları</h1>
-      <h2>5 TL ‘ den başlayan fiyatlarla şimdi araçlayın!</h2> -->
       <h1>aracla.com</h1>
       <h2>Türkiyenin Saatlik Araç Kiralama Platformu</h2>
       <div id="search-widget" v-cloak v-click-outside="closeSubMenus">
@@ -70,7 +68,7 @@
                     </option>
                   </select>
                   <span>Lütfen teslim saatini seçiniz:</span>
-                  <a @click="" class="search-btn mobile-search-btn">Ara</a>
+                  <a @click="checkAvailableCars" class="search-btn mobile-search-btn">Ara</a>
                 </div>
               </div>
             </div>
@@ -85,63 +83,7 @@
       </div>
     </div>
 
-    <div id="avantaj">
-      <div class="section">
-        <div class="inner">
-          <div class="intro">
-            <h2>Neden Aracla.com?</h2>
-            <p class="richtext">
-              aracla.com ile size en yakın park noktasından dilediğiniz aracı uygun fiyatlardan hızlı ve kolay bir şekilde saatlik ya da günlük kiralayabilirsiniz.
-            </p>
-          </div>
-          <div class="block">
-            <div class="icons-block">
-              <ul class="icons-list">
-                <li class="item">
-                  <div class="item-icon">
-                    <img class="icon" src="../img/icons/ucretsiz-yakit.svg" width="80" alt="Ücretsiz Yakıt">
-                  </div>
-                  <div class="item-text">
-                    <h3>Ücretsiz Yakıt</h3>
-                    <p class="richtext">Taşıt tanıma sistemi Shell istasyonlarından aracınızı ücretsiz doldurursunuz.</p>
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="item-icon">
-                    <img class="icon" src="../img/icons/kaskolu-arac.svg" width="80" alt="Ücretsiz Yakıt">
-                  </div>
-                  <div class="item-text">
-                    <h3>Kaskolu Araçlar</h3>
-                    <p class="richtext">Tüm araçlarımız muafiyetli kasko ile güvence altındadır.</p>
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="item-icon">
-                    <img class="icon" src="../img/icons/yol-yardim.svg" width="80" alt="Yol Yardım">
-                  </div>
-                  <div class="item-text">
-                    <h3>Yol Yardım</h3>
-                    <p class="richtext">Taşıt tanıma sistemi Shell istasyonlarından aracınızı ücretsiz doldurursunuz.</p>
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="item-icon">
-                    <img class="icon" src="../img/icons/aracla-club.png" width="80" alt="Yol Yardım">
-                  </div>
-                  <div class="item-text">
-                    <h3>Superaracla Club</h3>
-                    <p class="richtext">Aracla.com ' un üyelerine özel olarak sunduğu, araçladıkça kazandıran araclaclub uygulaması.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="image-block">
-              <img src="https://www.car2go.com/media/data/mercedes-benz/gla-dinner-silver-car-1818_502x20.jpg" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <WhyAracla />
 
     <AboutVideo />
 
@@ -153,198 +95,24 @@
 
     <AraclaClub />
 
-
-    <!-- <CarSlider /> -->
-
-    <!-- <div id="dort-adim">
-      <div class="section">
-        <div class="inner">
-          <h2>Kolay ve Hızlı Araç Kiralama</h2>
-          <h3>Sadece 4 kısa adımla araç kiralayın!</h3>
-          <p>
-            Sizlere en iyi hizmeti sunmak bizim ilk önceliğimizdir.
-            Dolayısıyla araç kiralamayı sizin için en kolay hale getirdik. <strong>Sadece 4 adımda</strong>
-            üyeliğinizi tamamlar ve dilediğiniz aracı kiralarsınız.
-          </p>
-
-          <div class="adimlar">
-            <div class="adim">
-              <img src="../img/icons/baglan.svg" height="40" alt="Bağlan">
-              <h4>1. Bağlan</h4>
-              <p>İster mobil, ister masa üstü cihazlarınızdan çok hızlı bir şekilde bağlanabilirsiniz</p>
-            </div>
-            <div class="adim">
-              <img src="../img/icons/rezerve-et.svg" height="40" alt="Rezerve Et">
-              <h4>2. Rezerve Et</h4>
-              <p>İhtiyacınız olan tarih ve saat aralığını girerek aracınızı rezerve edin</p>
-            </div>
-            <div class="adim">
-              <img src="../img/icons/kilit-ac.svg" height="40" alt="Kilit Aç">
-              <h4>3. Kilit Aç</h4>
-              <p>Araçla Kartınız ile aracınızın  tüm kontrolüne  rahatlıkla erişebilirsiniz.</p>
-            </div>
-            <div class="adim">
-              <img src="../img/icons/kullan.svg" height="40" alt="Kullan">
-              <h4>4. Kullan</h4>
-              <p>Artık aracınız belirlemiş olduğunuz zamanda kullanıma hazır.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <Calculator /> -->
-
-    <!-- <OfficeSlider /> -->
-
-<!--
-    <div id="ucretsiz-yakit">
-      <div class="section">
-        <div class="inner">
-          <h2>Ücretsiz Yakıt</h2>
-          <img src="../img/benzin-istasyonu.jpg" alt="Ücretsiz Yakıt">
-          <h3>Anlaşmalı İstasyonlardan Ücretsiz Yakıt</h3>
-          <p>
-            Aracla.com ile <strong>araç kiralarken</strong>
-            sadece seçmiş olduğunuz aracın saatlik ücretini ve km başı mesafe ücretini ödersiniz.
-            Bunun dışında ekstra <strong>yakıt ücreti ödemezsiniz.</strong> Araçla kartınız ile <strong>anlaşmalı istasyonlardan yakıtınızı ücretsiz doldurursunuz.</strong>
-            Yakıt ücreti ödememek için anlaşmalı benzin istasyonlarını tercih etmeniz gereklidir.
-          </p>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <div id="en-ucuz-arac-kiralama">
-      <div class="section">
-        <div class="inner">
-          <h2>Kaskolu En Ucuz Araç Kiralama</h2>
-          <img src="../img/kasko.jpg" alt="En Ucuz Araç Kiralama">
-          <h3>Kaskolu Saatlik, Günlük ve Aylık Araç Kiralama</h3>
-          <p>
-            Aracla.com bir <strong>saatlik araç kiralama</strong> platformudur. Fakat ihtiyacınıza göre <strong>günlük, haftalık ya da aylık da araç
-            kiralayabilirsiniz</strong>
-            Standart araç kiralama firlamalarından aracınızı kiralarken, minimum 1 günlük araç kiralar ve ücretini ödersiniz.
-            Fakat aracla.com ile sadece kullandığınız kadar ödeme yaparsınız. Acil durumlarda, önemli iş toplantılarında kısa süreli araç ihtiyacınızı
-            karşılamak için tüm gün araç kiralamanıza artık gerek yok. Aracla.com ile saatlik araç kiralar ve kullandığınız kadar ödeme yaparsınız.
-            Ekstra yakıt ücreti olmadan anlaşmalı istasyonlarda yakıtınızı araçla kartınız ile ücretsiz doldurursunuz.
-          </p>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <div id="yol-yardim">
-      <div class="section">
-        <div class="inner">
-          <h2>Yol Yardım</h2>
-          <img src="../img/yol-yardim.jpg" alt="Araçla Yol Yardım">
-          <h3>Yol yardım için 7/24 çağrı merkezimizi arayabilirsiniz</h3>
-          <p>
-            Kaza, yaralanma vb durumlarda; öncelikle trafik polisi (154), polis (155) ya da jandarma (156) yı
-            aramanız, aracın yerini değiştirmeden, en yakın polis ve jandarma karakolundan kaza ve alkol raporu
-            almanız gerekmektedir. Sonrasında çağrı merkezimizi arayarak yol yardım alabilirsiniz.
-          </p>
-          <p>
-            aracla.com yanyın, yaralanmalar vb. acil durumlar için, araç bagajlarında yangın tüpü ve ilk yardım
-            çantası bulundurur.
-          </p>
-        </div>
-      </div>
-    </div> -->
-<!--
-    <div class="section" id="aracla-club">
-      <img src="https://res.cloudinary.com/aracla-com/image/upload/v1495802346/club-white.png" alt="Superaracla Club"
-           width="64">
-      <h3>SUPERARACLA CLUB</h3>
-      <span>_______ Araçladıkça kazandıran ve sizi ödüllendiren araç paylaşım klubü _______</span>
-    </div>
-    <div class="section" id="aracla-club--bottom">
-      <div class="inner">
-        <div class="items">
-          <div class="item">
-            <div class="item--inner">
-              <img src="https://res.cloudinary.com/aracla-com/image/upload/v1495802457/no-money.png"
-                   alt="Depozito Ücretsiz" height="60">
-              <h3>DEPOZİTO VE ÜYELİK ÜCRETSİZ</h3>
-            </div>
-          </div>
-          <div class="item">
-            <div class="item--inner">
-              <img src="https://res.cloudinary.com/aracla-com/image/upload/v1495802489/kumbara.png"
-                   alt="Araçladıkça Kazanın" height="60">
-              <h3>ARAÇLADIKÇA ARAÇLALİRA KAZAN</h3>
-            </div>
-          </div>
-          <div class="item">
-            <div class="item--inner">
-              <img src="https://res.cloudinary.com/aracla-com/image/upload/v1495802517/konumuma-aracla.png"
-                   alt="Ücretsiz Konumuma Araçla" height="60">
-              <h3>ÜCRETSİZ KONUMUMA ARAÇLA</h3>
-            </div>
-          </div>
-          <div class="item">
-            <div class="item--inner">
-              <img src="https://res.cloudinary.com/aracla-com/image/upload/v1495802546/davet-et.png"
-                   alt="Arkadaşını Davet Et" height="60">
-              <h3>ARKADAŞINI DAVET ET, KAZAN</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-
-    <!-- <div id="keywords">
-      <div class="section">
-        <div class="inner">
-          <h2>Kategoriler</h2>
-          <div class="col">
-            <h3>En Ucuz Araç Kiralama</h3>
-            <a href="#">Ankara Araç Kiralama</a>
-            <a href="#">İstanbul Araç Kiralama</a>
-            <a href="#">İzmir Araç Kiralama</a>
-            <a href="#">Antalya Araç Kiralama</a>
-            <a href="#">Bursa Araç Kiralama</a>
-            <a href="#">Çankaya Araç Kiralama</a>
-          </div>
-          <div class="col">
-            <h3>Periyodik Araç Kiralama</h3>
-            <a href="#">Saatlik Araç Kiralama</a>
-            <a href="#">Günlük Araç Kiralama</a>
-            <a href="#">Haftalık Araç Kiralama</a>
-            <a href="#">Aylık Araç Kiralama</a>
-            <a href="#">Araç Kiralama Fiyatları</a>
-          </div>
-          <div class="col">
-            <h3>Hava Alanı Araç Kiralama</h3>
-            <a href="#">Havalimanı Araç Kiralama</a>
-            <a href="#">Esenbaoğ Havalimanı Araç Kiralama</a>
-            <a href="#">Sabiha Gökçen Havalimanı Araç Kiralama</a>
-            <a href="#">Atatürk Havalimanı Araç Kiralama</a>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
   </div>
 </template>
 
 <script>
-  import Calculator from '@/components/Calculator'
   import DatePicker from '@/components/DatePicker'
-  import CarSlider from '@/components/CarSlider'
-  import OfficeSlider from '@/components/OfficeSlider'
   import AboutVideo from '@/components/AboutVideo'
   import CarPricing from '@/components/CarPricing'
   import CarParks from '@/components/CarParks'
   import RentalSteps from '@/components/RentalSteps'
   import AraclaClub from '@/components/AraclaClub'
+  import WhyAracla from '@/components/WhyAracla'
   import AraclaNotification from '@/components/AraclaNotification'
   import {handleException} from '@/utils/ExceptionUtils'
   import axios from 'axios'
 
   export default {
     name: 'HomePage',
-    components: {Calculator, DatePicker, CarSlider, OfficeSlider, AraclaNotification, AboutVideo, CarPricing, CarParks, RentalSteps, AraclaClub},
+    components: {DatePicker, WhyAracla, AraclaNotification, AboutVideo, CarPricing, CarParks, RentalSteps, AraclaClub},
     data () {
       return {
         active: false,
@@ -553,11 +321,6 @@
 </script>
 
 <style lang="scss" >
-  @import "../styles/global";
   @import "../styles/main";
-  @import "../styles/section";
-  @import "../styles/advantage";
-  @import "../styles/dortadim";
-
 </style>
 

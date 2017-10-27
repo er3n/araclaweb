@@ -65,10 +65,6 @@
     .row {
       overflow: hidden;
     }
-    .inner {
-      max-width: 1200px;
-      margin: auto;
-    }
     .social-and-contact {
       float: left;
       .phone {
@@ -155,8 +151,8 @@
           margin-top: 0;
           a {
             font-size: 18px;
-            line-height: 24px;
-            font-weight: 300;
+            line-height: 30px;
+            font-weight: 400;
           }
         }
       }
