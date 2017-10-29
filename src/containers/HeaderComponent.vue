@@ -209,6 +209,7 @@
 <script>
   import AraclaNotification from '@/components/AraclaNotification'
   import axios from 'axios'
+  import {authenticate as authenticateToken, removeAuthToken, authToken} from '@/utils/Auth'
   export default {
     name: 'HeaderComponent',
     components: {AraclaNotification},
@@ -272,7 +273,7 @@
           })
           .then((res) => {
             if (res.status === 200) {
-              localStorage.setItem('token', res.data.token)
+              authenticateToken(res.data)
               window.location.replace('/')
             } else {
               this.waitForResponse = false
@@ -300,7 +301,7 @@
           })
       },
       logout () {
-        localStorage.removeItem('token')
+        removeAuthToken()
         this.user = undefined
       },
       toggleHeaderMenu () {
@@ -343,7 +344,7 @@
     },
     created () {
       console.log('Header yüklendi')
-      let token = localStorage.getItem('token')
+      let token = authToken()
       if (token) {
         axios.get(`/api/authenticate`, {
           headers: {
@@ -364,7 +365,7 @@
                 })
             }
           }).catch(() => {
-            localStorage.removeItem('token')
+            removeAuthToken()
           })
       }
       window.Header = this

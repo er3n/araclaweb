@@ -11,7 +11,7 @@
       <div class="cars-container" v-cloak>
         <div v-for="car in availableCars" class="car-item" :id="car.model.id">
           <div class="car-inner">
-            
+
             <div :class="{ confirm: true, active: car == confirmedCar}">
               <span class="title">Rezervasyon Onay</span>
               <p>Aşağıda rezervasyon bilgileri verilen aracın rezervasyonunu onaylıyor musunuz?</p>
@@ -79,6 +79,8 @@
 import AraclaNotification from '@/components/AraclaNotification'
 import {handleException} from '@/utils/ExceptionUtils'
 import axios from 'axios'
+import {authToken} from '@/utils/Auth'
+
 export default {
   name: 'SelectCarPage',
   components: {AraclaNotification},
@@ -121,7 +123,7 @@ export default {
       let dropOffHour = JSON.parse(sessionStorage.getItem('reservationParams')).dropOffHour
       let dropOfftimeForPost = new Date(`${dropOffDate[2]}-${dropOffDate[1]}-${dropOffDate[0]} ${dropOffHour}:00`)
 
-      let token = localStorage.getItem('token')
+      let token = authToken()
       let body = {
         model: car.model,
         dropOffLocation: this.pickUpLocationJSON,
@@ -182,7 +184,7 @@ $text-color: #333;
   padding: 0 20px;
   display: flex;
   align-items: flex-start;
-  
+
   @media screen and (max-width: $break-768) {
     flex-direction: column;
   }
@@ -195,7 +197,7 @@ $text-color: #333;
   order: 1;
   width: 73%;
   margin-right: 2%;
-  
+
   @media screen and (max-width: $break-768) {
     order: 2;
     width: 100%;
@@ -411,7 +413,7 @@ $text-color: #333;
 
   @media screen and (max-width: $break-425) {
     order: 1;
-    width: 100%;    
+    width: 100%;
   }
 
   @media screen and (min-width: $break-425 + 1px) and (max-width: $break-768) {
