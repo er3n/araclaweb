@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HomePage from '@/containers/HomePage'
 import SelectCarPage from '@/containers/SelectCarPage'
 import SuccessPage from '@/containers/SuccessPage'
+import RegisterPage from '@/containers/RegisterPage'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/rezervasyon-ozeti',
       name: 'SuccessPage',
       component: SuccessPage
+    },
+    {
+      path: '/kaydol',
+      name: 'RegisterPage',
+      component: RegisterPage
     }
   ]
 })

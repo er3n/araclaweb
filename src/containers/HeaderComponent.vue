@@ -245,7 +245,6 @@
         this.passwordResetPage = true
       },
       openPage (pageForOpen, pageForClose) {
-        console.log('ok')
         if (pageForClose) this._data[pageForClose] = false
         this._data[pageForOpen] = true
         this.modal = true
@@ -375,9 +374,8 @@
 
 
 <style lang="scss" scoped>
-  @import "../styles/global";
+  @import "../styles/common";
   @import "../styles/header";
   @import "../styles/signLoginPage";
-
 </style>
 

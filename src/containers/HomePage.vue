@@ -89,6 +89,8 @@
 
     <CarPricing />
 
+    <PriceTable />
+
     <CarParks />
 
     <RentalSteps />
@@ -106,13 +108,24 @@
   import RentalSteps from '@/components/RentalSteps'
   import AraclaClub from '@/components/AraclaClub'
   import WhyAracla from '@/components/WhyAracla'
+  import PriceTable from '@/components/PriceTable'
   import AraclaNotification from '@/components/AraclaNotification'
   import {handleException} from '@/utils/ExceptionUtils'
   import axios from 'axios'
 
   export default {
     name: 'HomePage',
-    components: {DatePicker, WhyAracla, AraclaNotification, AboutVideo, CarPricing, CarParks, RentalSteps, AraclaClub},
+    components: {
+      DatePicker,
+      WhyAracla,
+      AraclaNotification,
+      AboutVideo,
+      CarPricing,
+      CarParks,
+      RentalSteps,
+      AraclaClub,
+      PriceTable
+    },
     data () {
       return {
         active: false,

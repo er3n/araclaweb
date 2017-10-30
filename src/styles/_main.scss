@@ -17,6 +17,10 @@
     margin: 30px auto;
     padding: 10px;
     background: #fff;
+
+    .close {
+        display: none;
+    }
 }
 
 @mixin col {
@@ -68,6 +72,7 @@
     padding: 10px;
     background: #fff;
     border-radius: 3px;
+    z-index: 3;;
 
     & > h4 {
         font-weight: 500;
@@ -136,6 +141,7 @@
     left: -5px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    z-index: 3;
 
     .slider {
 
@@ -205,10 +211,13 @@
                     width: calc(100% - 20px);
                     position: fixed;
                     left: 0;
-                    top: 0;
+                    top: 60px;
                     height: 100%;
                     border-radius: 0;
-                    z-index: 1;
+                    z-index: 2;
+                    .close {
+                        display: block;
+                    }
                 }
             }
 
@@ -219,6 +228,7 @@
                         display: block;
                         .close {
                             float: right;
+                            display: block;
                         }
                     }
 
@@ -283,7 +293,7 @@
                 position: absolute;
                 left: 15px;
                 width: calc(100% - 30px);
-                bottom: 50px;
+                bottom: 110px;
                 height: 50px;
                 line-height: 50px;
                 background-position: calc(50% - 35px) 15px;
@@ -361,11 +371,9 @@
 
     }
 
-    @media screen and (max-width: $break-320) {
-        @include main-320;
-    }
 
-    @media screen and (min-width: $break-320 + 1px) and (max-width: $break-375) {
+    @media screen and (max-width: $break-375) {
+        @include main-320;
         h1 {
             font-size: 48px;
         }
@@ -374,7 +382,6 @@
             font-weight: 500;
         }
         #search-widget {
-            width: 320px;
             .col {
                 &.date-time {
                     .sub-menu {
@@ -478,5 +485,3 @@
     }
 
 }
-
-

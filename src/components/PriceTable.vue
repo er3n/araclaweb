@@ -1,12 +1,13 @@
 <template>
-  <div id="avantaj">
+  <div id="price-table">
       <div class="section">
         <div class="inner">
           <div class="intro">
-            <h2>Neden Aracla.com?</h2>
+            <h2>Ücretlendirmeler</h2>
             <p class="richtext">
-              aracla.com ile size en yakın park noktasından dilediğiniz aracı uygun fiyatlardan hızlı ve kolay bir şekilde saatlik ya da günlük kiralayabilirsiniz. <br>
-              Yıllık üyelik bedeli 49 TL ödeyerek, dilediğinizce araçlayın.
+              aracla.com ile ne ödeyeceğiniz sizin kontrolünüz altında! 
+              <strong>Diğer araç kiralama firmalarından farklı olarak</strong>, sadece kullandığınız kadar ödersiniz.
+              <br><strong>Ücretsiz Yakıt</strong> ile özgürce seyahat etmenin ayrıcalığını yaşarsınız.
             </p>
           </div>
           <div class="block">
@@ -14,44 +15,44 @@
               <ul class="icons-list">
                 <li class="item">
                   <div class="item-icon">
-                    <img class="icon" src="../img/icons/ucretsiz-yakit.svg" width="48" alt="Ücretsiz Yakıt">
+                    <img class="icon" src="../img/icons/dollar-symbol.svg" width="40" alt="Ücretsiz Üyelik">
+                  </div>
+                  <div class="item-text">
+                    <h3>Yılda 49 TL ' ye araçlayın!</h3>
+                    <p class="richtext">aracla.com ' da yıllık üyelik bedeli 49 TL dir.</p>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="item-icon">
+                    <img class="icon" src="../img/icons/dollar-symbol.svg" width="40" alt="Ücretsiz Yakıt">
                   </div>
                   <div class="item-text">
                     <h3>Ücretsiz Yakıt</h3>
-                    <p class="richtext">Taşıt tanıma sistemi Shell istasyonlarından aracınızı ücretsiz doldurursunuz.</p>
+                    <p class="richtext">Yakıt ücreti ödemezsiniz. Taşıt tanıma sistemi ile <strong>SHELL istasyonlarından</strong> ücretsiz doldurursunuz.</p>
                   </div>
                 </li>
                 <li class="item">
                   <div class="item-icon">
-                    <img class="icon" src="../img/icons/kaskolu-arac.svg" width="48" alt="Ücretsiz Yakıt">
+                    <img class="icon" src="../img/icons/dollar-symbol.svg" width="40" alt="Ücretsiz Yakıt">
+                  </div>
+                  <div class="item-text">
+                    <h3>İster Saatlik, İster Günlük!</h3>
+                    <p class="richtext">İster saatlik, ister günlük, isterseniz de uzun dönem araç kiralar, sadece kullandığınız kadarını ödersiniz.</p>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="item-icon">
+                    <img class="icon" src="../img/icons/dollar-symbol.svg" width="40" alt="Ücretsiz Yakıt">
                   </div>
                   <div class="item-text">
                     <h3>Kaskolu Araçlar</h3>
-                    <p class="richtext">Tüm araçlarımız muafiyetli kasko ile güvence altındadır.</p>
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="item-icon">
-                    <img class="icon" src="../img/icons/yol-yardim.svg" width="48" alt="Yol Yardım">
-                  </div>
-                  <div class="item-text">
-                    <h3>Yol Yardım</h3>
-                    <p class="richtext">7/24 Yol yardım desteğimiz ile güvence altındasınız.</p>
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="item-icon">
-                    <img class="icon" src="../img/icons/aracla-club.png" width="48" alt="Yol Yardım">
-                  </div>
-                  <div class="item-text">
-                    <h3>Superaracla Club</h3>
-                    <p class="richtext">Aracla.com ' un üyelerine özel olarak sunduğu, araçladıkça kazandıran araclaclub uygulaması.</p>
+                    <p class="richtext">Tüm araçlarımız, Muafiyetli Kasko kapsamında güvence altındadır.</p>
                   </div>
                 </li>
               </ul>
             </div>
             <div class="image-block">
-              <img src="https://res.cloudinary.com/aracla-com/image/upload/v1509367054/volvo-v40_aqrsci.jpg" alt="Neden Araçla">
+              <img src="https://res.cloudinary.com/aracla-com/image/upload/c_scale,w_640/v1509369483/wp_fpcq4a.jpg" alt="Ücretlendirmeler">
             </div>
           </div>
         </div>
@@ -61,14 +62,17 @@
 
 <script>
   export default {
-    name: 'WhyAracla'
+    name: 'PriceTable'
   }
 </script>
 
 <style lang="scss">
   @import "../styles/common";
 
-  @mixin avantaj {
+  @mixin price_table {
+      .intro {
+        padding: 0;
+      }
       .block {
           display: flex;
           margin-bottom: 100px;
@@ -106,8 +110,8 @@
       }
   }
 
-  #avantaj {
-      @include avantaj;
+  #price-table {
+      @include price_table;
 
       @media screen and (max-width: $break-425) {
           .block {

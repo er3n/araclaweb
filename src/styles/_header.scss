@@ -5,7 +5,7 @@
     height: 60px;
     background: #fff;
     box-shadow: 0 0 6px 0 rgba(0,0,0,0.10);
-    z-index: 1;
+    z-index: 3;
 
     .logo {
         float: left;
@@ -47,7 +47,7 @@
         height: 60px;
         padding: 0 15px;
         img {
-            margin-top: 10px;
+            margin-top: 17px;
         }
     }
     .submenu {
@@ -178,9 +178,9 @@ header {
     }
 
     @media screen and (max-width: $break-425) {
-        height: 48px;
+        height: 60px;
         .logo img { 
-            height: 48px;
+            height: 60px;
         }
         .top-menus {
             ul {
@@ -189,31 +189,31 @@ header {
                 }
             }
             .sign-button {
-                height: 48px;
-                width: 48px;
+                height: 60px;
+                width: 60px;
                 a {
-                    width: 48px;
-                    height: 48px;
+                    width: 60px;
+                    height: 60px;
                     img {
-                        margin-top: 16px;
-                        height: 18px;
+                        margin-top: 20px;
+                        height: 24px;
                     }
                 }
             }
             .logged-in {
                 position: absolute;
                 left: 0;
-                top: 48px;
+                top: 60px;
                 width: 100%;
-                height: 48px;
+                height: 60px;
                 background: #fff;
                 border-top: 1px solid #e1e1e1;
                 a {
-                    line-height: 48px;
+                    line-height: 60px;
                 }
                 .profile-submenu {
                     box-shadow: none;
-                    top: 48px;
+                    top: 60px;
                     border-top: 1px solid #e1e1e1;
                     border-bottom: 1px solid #e1e1e1;
                 }
@@ -221,17 +221,17 @@ header {
             .mobile-menu {
                 display: inline-block;
                 & > a {
-                    padding: 0 8px;
-                    width: 27px;
-                    height: 48px;
+                    padding: 0 14px;
+                    width: 32px;
+                    height: 60px;
                     img {
-                        height: 27px;
+                        height: 32px;
                     }
                 }
                 .submenu {
                     position: absolute;
                     left: 0;
-                    top: 48px;
+                    top: 60px;
                     border: 1px solid #e1e1e1;
                     width: 100%;
                     box-shadow: none;

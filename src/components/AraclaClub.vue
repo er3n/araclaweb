@@ -50,7 +50,7 @@
               </ul>
             </div>
             <div class="image-block">
-              <img src="https://www.car2go.com/media/data/mercedes-benz/gla-dinner-silver-car-1818_502x20.jpg" alt="">
+              <img src="https://res.cloudinary.com/aracla-com/image/upload/v1509367054/volvo-v40_aqrsci.jpg" alt="Araçla Club">
             </div>
           </div>
         </div>
