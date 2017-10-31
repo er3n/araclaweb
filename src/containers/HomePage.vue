@@ -68,7 +68,7 @@
                     </option>
                   </select>
                   <span>Lütfen teslim saatini seçiniz:</span>
-                  <a @click="checkAvailableCars" class="search-btn mobile-search-btn">Ara</a>
+                  <a @click="checkAvailableCars" v-if="selectedEndTimeOptionValue > -1" class="search-btn mobile-search-btn">Ara</a>
                 </div>
               </div>
             </div>
@@ -79,7 +79,7 @@
           <span class="content" @click="showDateTime('col3')"
                 :class="{ active: selectedColumn === 'col3' }">{{ endDateLabel }}</span>
         </div>
-        <a @click.prevent="checkAvailableCars" href="#" class="search-btn">Ara</a>
+        <a @click="checkAvailableCars" class="search-btn">Ara</a>
       </div>
     </div>
 
@@ -207,9 +207,13 @@
           pickUpLocation: this.selectedParkingPoint.code
         }
         axios.post('/api/calculateAvailableReservations', reservationParams).then((response) => {
+          reservationParams['parkingPoints'] = this.parkingPoints
+          reservationParams['availableCars'] = response.data
           sessionStorage.setItem('reservationParams', JSON.stringify(reservationParams))
+          // sessionStorage.setItem('availableCars', JSON.stringify(response.data))
+          // sessionStorage.setItem('params', JSON.stringify({ availableCars: response.data, parkingPoints: this.parkingPoints }))
           this.$router.push({
-            name: 'SelectCar', params: { availableCars: response.data, parkingPoints: this.parkingPoints }
+            name: 'SelectCarPage', params: { availableCars: response.data, parkingPoints: this.parkingPoints }
           })
         }).catch((err) => {
           handleException(err, (desc) => {
@@ -223,12 +227,11 @@
 
     },
     created () {
-      console.log('yüklendi')
+      console.log('Ansayfa Yüklendi')
       this.loadTimes()
     },
     watch: {
       selectedStartTimeOptionValue (t) {
-        console.log(t)
         setTimeout(() => {
           this.showDateTime('col3')
         }, 500)
@@ -307,7 +310,6 @@
             if (compName) {
               warn += `Found in component '${compName}'`
             }
-
             console.warn(warn)
           }
           // Define Handler and cache it on the element

@@ -273,7 +273,8 @@
           .then((res) => {
             if (res.status === 200) {
               authenticateToken(res.data)
-              window.location.replace('/')
+              // window.location.replace('/')
+              document.location.reload()
             } else {
               this.waitForResponse = false
               this.loginError = true

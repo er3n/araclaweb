@@ -43,7 +43,6 @@
       axios.get('/api/priceSheet')
         .then((cars) => {
           this.cars = cars.data
-          console.log(this.cars)
         })
     }
   }

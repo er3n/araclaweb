@@ -18,36 +18,40 @@ export default {
     }
   },
   created () {
+    window.scrollTo(0, 0)
     console.log('success oluşturuldu')
-    // if (!this.reservationDetail) {
-    //   location.href = '/'
-    // }
   }
 }
 </script>
 
 <style lang="scss">
+@import "../styles/common";
 #success-page {
-  padding-top: 60px;
+  padding: 60px 20px;
   left: 0;
   top: 0;
   width: 100%;
   min-height: 500px;
-  .inner {
-    width: 1024px;
-    margin: auto;
+
+  .success {
+    margin: 200px 0;
+  }
+  h3 {
+    font-size: 60px;
+    color: #333;
+    font-weight: 400;
+    margin-bottom: 30px;
+    line-height: 30px;
+  }
+  p {
+    font-size: 24px;
+  }
+  @media screen and (max-width: $break-425) {
     .success {
-      margin: 200px 0;
+      margin: 75px 0;
     }
     h3 {
-      font-size: 60px;
-      color: #333;
-      font-weight: 400;
-      margin-bottom: 30px;
-      line-height: 30px;
-    }
-    p {
-      font-size: 24px;
+      font-size: 48px;
     }
   }
 }

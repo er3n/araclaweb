@@ -46,7 +46,7 @@
               <span class="price">₺ {{ car.totalPrice }}<small> / Toplam Fiyat</small></span>
               <span class="free-km">{{ car.totalFreeOdemeter }} KM ücretsiz mesafe</span>
               <a v-if="user" @click="showConfirmModal(car)" class="make-reserve">Rezerve Et</a>
-              <a v-if="!user" class="login-for-reserve">Rezerve Etmek için giriş yapın</a>
+              <a v-if="!user" @click="showLoginModal" class="login-for-reserve">Rezerve Etmek için giriş yapın</a>
             </div>
           </div>
         </div>
@@ -55,15 +55,15 @@
         <div class="wrapper">
           <div class="item">
             <span class="title">Park Noktası</span>
-            <span class="content">{{ pickUpLocation }}</span>
+            <span class="content">{{ pickUpLocationJSON.description }}</span>
           </div>
           <div class="item">
             <span class="title">Alış Tarihi</span>
-            <span class="content">{{ pickUpDate }}</span>
+            <span class="content">{{ pickUpDate }} - {{ pickUpHour }}</span>
           </div>
           <div class="item">
             <span class="title">Teslim Tarihi</span>
-            <span class="content">{{ dropOffDate }}</span>
+            <span class="content">{{ dropOffDate }} - {{ dropOffHour }}</span>
           </div>
           <div class="item" v-if="selectedCar">
             <span class="title">Seçilen Araç</span>
@@ -86,11 +86,13 @@ export default {
   components: {AraclaNotification},
   data () {
     return {
-      availableCars: this.$route.params.availableCars,
-      parkingPoints: this.$route.params.parkingPoints,
       selectedCar: undefined,
+      availableCars: undefined,
+      parkingPoints: undefined,
       pickUpDate: undefined,
+      pickUpHour: undefined,
       dropOffDate: undefined,
+      dropOffHour: undefined,
       pickUpLocation: undefined,
       totalPrice: undefined,
       user: undefined,
@@ -100,10 +102,9 @@ export default {
     }
   },
   methods: {
-    findParkingPoint (location) {
-      this.parkingPoints.map((parkingPoint) => {
-        if (parkingPoint.code === location) {
-          this.pickUpLocation = parkingPoint.name
+    findParkingPoint (parkingPoints) {
+      parkingPoints.map((parkingPoint) => {
+        if (parkingPoint.code === this.pickUpLocation) {
           this.pickUpLocationJSON = parkingPoint
         }
       })
@@ -113,6 +114,9 @@ export default {
     },
     cancelConfirm () {
       this.confirmedCar = undefined
+    },
+    showLoginModal () {
+      window.Header.openPage('signLoginPage')
     },
     confirmReservation (car) {
       let pickUpDate = JSON.parse(sessionStorage.getItem('reservationParams')).pickUpDate.split('/')
@@ -154,13 +158,22 @@ export default {
     }
   },
   created () {
+    console.log(window.Header.user)
+    window.scrollTo(0, 0)
     console.log('SelectCarPage Yüklendi')
     let reservationParams = JSON.parse(sessionStorage.getItem('reservationParams'))
-    this.findParkingPoint(reservationParams.pickUpLocation)
-    this.pickUpDate = `${reservationParams.pickUpDate} - ${reservationParams.pickUpHour}`
-    this.dropOffDate = `${reservationParams.dropOffDate} - ${reservationParams.dropOffHour}`
-    this.user = window.Header.user
-    console.log(this.availableCars)
+    console.log(reservationParams)
+    this.availableCars = reservationParams.availableCars
+    this.parkingPoints = reservationParams.parkingPoints
+    this.pickUpDate = reservationParams.pickUpDate
+    this.pickUpHour = reservationParams.pickUpHour
+    this.dropOffDate = reservationParams.dropOffDate
+    this.dropOffHour = reservationParams.dropOffHour
+    this.pickUpLocation = reservationParams.pickUpLocation
+    this.findParkingPoint(reservationParams.parkingPoints)
+    setTimeout(() => {
+      this.user = window.Header.user
+    }, 1000)
   }
 }
 </script>

@@ -72,7 +72,7 @@
     padding: 10px;
     background: #fff;
     border-radius: 3px;
-    z-index: 3;;
+    z-index: 3;
 
     & > h4 {
         font-weight: 500;
@@ -211,10 +211,10 @@
                     width: calc(100% - 20px);
                     position: fixed;
                     left: 0;
-                    top: 60px;
+                    top: 0;
                     height: 100%;
                     border-radius: 0;
-                    z-index: 2;
+                    z-index: 3;
                     .close {
                         display: block;
                     }
@@ -290,10 +290,10 @@
             background-position: calc(50% - 35px) 10px;
 
             &.mobile-search-btn {
-                position: absolute;
+                position: fixed;
                 left: 15px;
                 width: calc(100% - 30px);
-                bottom: 110px;
+                bottom: 15px;
                 height: 50px;
                 line-height: 50px;
                 background-position: calc(50% - 35px) 15px;
@@ -312,7 +312,7 @@
 
     // background: url(../img/hero-desktop.jpg) center bottom;
     // background: url(https://assets.volvocars.com/tr/~/media/turkey/images/custom/volvo-v40-pdp.png?w=1920) center top;
-    background: url(https://res.cloudinary.com/aracla-com/image/upload/c_scale,w_1600/v1509107107/volvo-v40-pdp_eiyp3c.webp) center top;
+    background: url(https://res.cloudinary.com/aracla-com/image/upload/v1509374571/volvo-v40_fqguoo.jpg) center top;
     background-size: cover;
 
     margin-top: 60px;
@@ -382,6 +382,7 @@
             font-weight: 500;
         }
         #search-widget {
+            width: 320px;
             .col {
                 &.date-time {
                     .sub-menu {

@@ -11,7 +11,7 @@ export const authenticate = (json) => {
 export const authToken = () => {
   let tokenStr = localStorage.getItem(TOKEN_KEY)
   let tokenJson = JSON.parse(tokenStr)
-  return tokenJson.token
+  return tokenJson !== null ? tokenJson.token : null
 }
 
 export const removeAuthToken = () => {
